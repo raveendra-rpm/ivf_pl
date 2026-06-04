@@ -2,55 +2,132 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Phone, Menu, X, ChevronDown } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 
 const navLinks = [
   {
     label: 'About Us',
     href: '#',
     children: [
-      { label: 'Our Story', href: '#' },
-      { label: 'Our Team', href: '#' },
-      { label: 'Awards & Recognition', href: '#' },
+      { label: 'Our Story', href: '/our-story' },
+      { label: 'Our Team', href: '/our-team' },
+      { label: 'Why Us?', href: '/why-us' },
+      { label: 'Careers', href: '/careers' },
     ],
   },
   {
     label: 'Treatment & Services',
     href: '#',
     children: [
-      { label: 'IVF Treatment', href: '#' },
-      { label: 'IUI Treatment', href: '#' },
-      { label: 'Egg Freezing', href: '#' },
-      { label: 'ICSI', href: '#' },
-      { label: 'Male Infertility', href: '#' },
+      { 
+        label: 'Female Fertility Treatments', 
+        href: '#',
+        children: [
+          { label: 'IN VITRO FERTILISATION (IVF)', href: '#' },
+          { label: 'INTRACYTOPLASMIC SPERM INJECTION (ICSI)', href: '#' },
+          { label: 'INTRAUTERINE INSEMINATION (IUI)', href: '#' },
+          { label: 'FROZEN EMBRYO TRANSFER (FET)', href: '#' },
+          { label: 'LAH | LASER ASSISTED HATCHING', href: '#' },
+          { label: 'OVULATION INDUCTION', href: '#' },
+          { label: 'BLASTOCYST CULTURE', href: '#' },
+        ]
+      },
+      { 
+        label: 'Male Infertility', 
+        href: '#',
+        children: [
+          { label: 'TESTICULAR SPERM ASPIRATION (TESA)', href: '#' },
+          { label: 'MICRO-TESE', href: '#' },
+          { label: 'VARICOCELE REPAIR', href: '#' },
+          { label: 'PERCUTANEOUS EPIDIDYMAL SPERM ASPIRATION (PESA)', href: '#' },
+          { label: 'TESTICULAR TISSUE BIOPSY', href: '#' },
+          { label: 'ELECTROEJACULATION AND ANCILLARY SERVICES', href: '#' },
+        ]
+      },
+      { 
+        label: 'Donor Services', 
+        href: '#',
+        children: [
+          { label: 'DONOR EGG', href: '#' },
+          { label: 'DONOR SPERM', href: '#' },
+        ]
+      },
+      { 
+        label: 'Fertility Preservation', 
+        href: '#',
+        children: [
+          { label: 'EGG FREEZING', href: '#' },
+          { label: 'EMBRYO REDUCTION', href: '#' },
+          { label: 'SPERM FREEZING', href: '#' },
+          { label: 'EMBRYO FREEZING', href: '#' },
+          { label: 'OVARIAN CORTEX FREEZING', href: '#' },
+          { label: 'TESTICULAR TISSUE FREEZING', href: '#' },
+          { label: 'CANCER FERTILITY PRESERVATION', href: '#' },
+        ]
+      },
+      { 
+        label: 'Gynaecological Procedures', 
+        href: '#',
+        children: [
+          { label: 'HORMONE ASSAY FOR OVARIAN RESERVE TEST', href: '#' },
+          { label: 'ADVANCED LAPAROSCOPY', href: '#' },
+          { label: 'BASIC & ADVANCED HYSTEROSCOPY', href: '#' },
+        ]
+      },
+      { 
+        label: 'Genetics & Diagnostics', 
+        href: '#',
+        children: [
+          { label: 'INFERTILITY ASSESSMENT PANEL', href: '#' },
+          { label: 'TUBAL PATENCY TESTS (HSG, SSG)', href: '#' },
+          { label: 'ADVANCED SEMEN ANALYSIS', href: '#' },
+          { label: 'ULTRASOUND - 3D ULTRASOUND / COLOUR DOPPLER', href: '#' },
+          { label: 'PREIMPLANTATION GENETIC SCREENING (PGS)', href: '#' },
+          { label: 'PREIMPLANTATION GENETIC DIAGNOSIS', href: '#' },
+          { label: 'GENETIC PANEL', href: '#' },
+        ]
+      },
     ],
   },
-  { label: 'Success Rate', href: '#' },
+  { label: 'Success Rate', href: '/success-rate' },
   {
     label: 'Second Opinion',
     href: '#',
     children: [
-      { label: 'Online Consultation', href: '#' },
-      { label: 'In-Person Visit', href: '#' },
+      { label: 'REPETED MISCARIAGES', href: '#' },
+      { label: 'REPEATED IVF FAILURE', href: '#' },
+      { label: 'FERTILITY & CANCER', href: '#' },
+      { label: 'RECURRENT IMPLANTATION FAILURE', href: '#' },
     ],
   },
   {
     label: 'Trying for a Baby?',
     href: '#',
     children: [
-      { label: 'Fertility Assessment', href: '#' },
-      { label: 'Patient Stories', href: '#' },
+      { label: 'When to Seek Help?', href: '#' },
+      { label: 'Food & Nutrition', href: '#' },
+      { label: 'Ovulation Calculator', href: '#' },
+      { label: 'Period Calculator', href: '#' },
+      { label: 'Pregnancy Calculator', href: '#' },
+      { label: 'Pregnancy Conception Calculator', href: '#' },
     ],
   },
-  { label: 'Contact Us', href: '#' },
-  { label: 'Blog', href: '#' },
+  { label: 'Contact Us', href: '/contact' },
+  { label: 'Blog', href: '/blog' },
 ];
 
 export default function Navbar({ alwaysDark = false }: { alwaysDark?: boolean }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  
+  // Desktop state
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openSubDropdown, setOpenSubDropdown] = useState<string | null>(null);
+  
+  // Mobile state
   const [mobileExpandedItem, setMobileExpandedItem] = useState<string | null>(null);
+  const [mobileExpandedSubItem, setMobileExpandedSubItem] = useState<string | null>(null);
+  
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -65,6 +142,7 @@ export default function Navbar({ alwaysDark = false }: { alwaysDark?: boolean })
     const handler = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setOpenDropdown(null);
+        setOpenSubDropdown(null);
       }
     };
     document.addEventListener('mousedown', handler);
@@ -106,11 +184,23 @@ export default function Navbar({ alwaysDark = false }: { alwaysDark?: boolean })
                 key={link.label} 
                 className="relative group h-full flex items-center"
                 onMouseEnter={() => link.children && setOpenDropdown(link.label)}
-                onMouseLeave={() => link.children && setOpenDropdown(null)}
+                onMouseLeave={() => {
+                  if (link.children) {
+                    setOpenDropdown(null);
+                    setOpenSubDropdown(null);
+                  }
+                }}
               >
                 {link.children ? (
                   <button
-                    onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                    onClick={() => {
+                      if (openDropdown === link.label) {
+                        setOpenDropdown(null);
+                        setOpenSubDropdown(null);
+                      } else {
+                        setOpenDropdown(link.label);
+                      }
+                    }}
                     className={`flex items-center gap-0.5 2xl:gap-1 px-1 py-2 2xl:px-2 rounded-lg text-[10px] 2xl:text-[11.5px] font-bold uppercase tracking-wide whitespace-nowrap transition-all duration-200 ${linkColor} hover:bg-white/10`}
                   >
                     {link.label}
@@ -131,16 +221,56 @@ export default function Navbar({ alwaysDark = false }: { alwaysDark?: boolean })
                 {/* Dropdown */}
                 {link.children && openDropdown === link.label && (
                   <div className="absolute top-full left-0 pt-3 z-50">
-                    <div className="w-52 bg-white rounded-xl shadow-2xl shadow-black/10 border border-gray-100 py-1.5 animate-in fade-in slide-in-from-top-2 duration-150">
+                    <div className="w-64 bg-white rounded-xl shadow-2xl shadow-black/10 border border-gray-100 py-1.5 animate-in fade-in slide-in-from-top-2 duration-150">
                       {link.children.map((child) => (
-                        <Link
+                        <div 
                           key={child.label}
-                          href={child.href}
-                          onClick={() => setOpenDropdown(null)}
-                          className="block px-4 py-2.5 text-[13px] text-gray-700 font-semibold hover:bg-pink-50 hover:text-primary-pink transition-colors"
+                          className="relative group/sub"
+                          onMouseEnter={() => child.children && setOpenSubDropdown(child.label)}
+                          onMouseLeave={() => child.children && setOpenSubDropdown(null)}
                         >
-                          {child.label}
-                        </Link>
+                          {child.children ? (
+                            <button
+                              onClick={() => setOpenSubDropdown(openSubDropdown === child.label ? null : child.label)}
+                              className="w-full flex items-center justify-between px-4 py-2.5 text-[13px] text-gray-700 font-semibold hover:bg-pink-50 hover:text-primary-pink transition-colors"
+                            >
+                              {child.label}
+                              <ChevronRight className="w-3.5 h-3.5 text-gray-400" strokeWidth={2.5} />
+                            </button>
+                          ) : (
+                            <Link
+                              href={child.href}
+                              onClick={() => {
+                                setOpenDropdown(null);
+                                setOpenSubDropdown(null);
+                              }}
+                              className="block px-4 py-2.5 text-[13px] text-gray-700 font-semibold hover:bg-pink-50 hover:text-primary-pink transition-colors"
+                            >
+                              {child.label}
+                            </Link>
+                          )}
+
+                          {/* Sub-Dropdown */}
+                          {child.children && openSubDropdown === child.label && (
+                            <div className="absolute top-0 left-full pl-1 z-50">
+                              <div className="w-72 bg-white rounded-xl shadow-2xl shadow-black/10 border border-gray-100 py-1.5 animate-in fade-in slide-in-from-left-2 duration-150">
+                                {child.children.map((subChild) => (
+                                  <Link
+                                    key={subChild.label}
+                                    href={subChild.href}
+                                    onClick={() => {
+                                      setOpenDropdown(null);
+                                      setOpenSubDropdown(null);
+                                    }}
+                                    className="block px-4 py-2.5 text-[13px] text-gray-700 font-semibold hover:bg-pink-50 hover:text-primary-pink transition-colors"
+                                  >
+                                    {subChild.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -226,14 +356,44 @@ export default function Navbar({ alwaysDark = false }: { alwaysDark?: boolean })
                   {mobileExpandedItem === link.label && (
                     <div className="bg-gray-50 border-l-2 border-primary-pink ml-5">
                       {link.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="block px-5 py-2.5 text-[13px] text-gray-600 font-semibold hover:text-primary-pink transition-colors"
-                        >
-                          {child.label}
-                        </Link>
+                        <div key={child.label}>
+                          {child.children ? (
+                            <>
+                              <button
+                                onClick={() => setMobileExpandedSubItem(mobileExpandedSubItem === child.label ? null : child.label)}
+                                className="w-full flex items-center justify-between px-5 py-2.5 text-[13px] text-gray-700 font-semibold hover:text-primary-pink transition-colors"
+                              >
+                                {child.label}
+                                <ChevronDown
+                                  className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileExpandedSubItem === child.label ? 'rotate-180 text-primary-pink' : 'text-gray-400'}`}
+                                  strokeWidth={2.5}
+                                />
+                              </button>
+                              {mobileExpandedSubItem === child.label && (
+                                <div className="bg-gray-100 border-l-2 border-primary-pink ml-5">
+                                  {child.children.map((subChild) => (
+                                    <Link
+                                      key={subChild.label}
+                                      href={subChild.href}
+                                      onClick={() => setMobileOpen(false)}
+                                      className="block px-5 py-2.5 text-[12px] text-gray-600 font-semibold hover:text-primary-pink transition-colors"
+                                    >
+                                      {subChild.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </>
+                          ) : (
+                            <Link
+                              href={child.href}
+                              onClick={() => setMobileOpen(false)}
+                              className="block px-5 py-2.5 text-[13px] text-gray-600 font-semibold hover:text-primary-pink transition-colors"
+                            >
+                              {child.label}
+                            </Link>
+                          )}
+                        </div>
                       ))}
                     </div>
                   )}

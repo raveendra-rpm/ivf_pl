@@ -5,6 +5,7 @@ import PersonalisedHelpSection from '@/components/PersonalisedHelpSection';
 import ProcessStepsSection from '@/components/ProcessStepsSection';
 import TreatmentsSection from '@/components/TreatmentsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import GoogleReviewsSection from '@/components/GoogleReviewsSection';
 import DoctorsSection from '@/components/DoctorsSection';
 
 import FAQSection from '@/components/FAQSection';
@@ -23,6 +24,7 @@ export default function Home() {
         <ProcessStepsSection />
         <TreatmentsSection />
         <TestimonialsSection />
+        <GoogleReviewsSection />
         <DoctorsSection />
 
         <FAQSection />

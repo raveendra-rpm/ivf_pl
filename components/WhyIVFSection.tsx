@@ -51,7 +51,7 @@ export default function WhyIVFSection() {
   ];
 
   return (
-    <section className="relative bg-white overflow-hidden pt-24 pb-0">
+    <section id="why-us" className="relative bg-white overflow-hidden pt-24 pb-0">
       {/* Subtle background decoration */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#eef4fb] blur-3xl opacity-60 -translate-y-1/2 translate-x-1/4 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#fdf0f7] blur-3xl opacity-50 translate-y-1/2 -translate-x-1/4 pointer-events-none" />

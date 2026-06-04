@@ -29,10 +29,7 @@ export default function FAQSection() {
       question: "What is the success rate of IVF?",
       answer: "Success rates strongly depend on the age of the patient, their condition, medical history and the treatment used. Popular Pratap IVF has 90% success ratio. However by leveraging advanced technology and standardising the procedures, we are constantly working towards improving the IVF success rates."
     },
-    {
-      question: "When should I opt for IVF?",
-      answer: "The IVF procedure can be prescribed in cases where the other fertility treatments have failed, or if the chances of a successful pregnancy are higher with this method than with any other treatment. If there are no contraindications, the procedure can be carried out simply at the request of the couple by considering that precise time as the right time for IVF."
-    },
+
     {
       question: "In which cases, IVF is performed?",
       answer: (
@@ -64,6 +61,14 @@ export default function FAQSection() {
     {
       question: "Can I continue with my routine activities after embryo transfer?",
       answer: "Even though, embryo is formed artificially in an IVF pregnancy, there is no difference from what happens in the natural cycle. The uterus accepts the embryo in the same way it accepts the naturally fertilised eggs. It is important to understand that nature has a foolproof plan in everything including the reproductive system where the embryo attaches to the uterine lining very firmly regardless of whether it attaches naturally or artificially. The movements or walk around or even gravity, does not cause the embryo to detach and fall off. Also, it is a total myth that bed rest after embryo transfer increases success rate of IVF. In fact, research has shown that patients who do complete bed rest after embryo transfer have less success in IVF as compared to patients who continue to do their routine activities. Main reason behind this is that patients who keep themselves engaged in some activities have less stress levels which help in increasing their IVF success. Therefore, the advice of bed rest after embryo transfer is over exaggerated or unrealistic."
+    },
+    {
+      question: "Can we opt for IVF for our second child if our first child was conceived through IVF?",
+      answer: "Yes, absolutely. If your first child was conceived through IVF, you can certainly opt for IVF for your second child as well. Many couples successfully build their families with multiple IVF pregnancies. Our fertility experts will evaluate your current health and guide you through the process for a successful second pregnancy."
+    },
+    {
+      question: "Do I need bed rest for IVF?",
+      answer: "No, complete bed rest is not required after an IVF embryo transfer. It is recommended to relax for a short time after the procedure, but you can typically resume your normal daily activities soon after. In fact, light activity can be beneficial as it promotes blood flow. We advise against strenuous exercise and heavy lifting, but routine activities are perfectly fine."
     }
   ];
 

@@ -1,26 +1,9 @@
 import { ArrowRight, Calendar, Tag } from 'lucide-react';
+import Link from 'next/link';
+import { blogData } from '@/lib/blogData';
 
 export default function BlogsSection() {
-  const blogs = [
-    {
-      title: "Understanding the different stages of IVF",
-      date: "Oct 12, 2025",
-      category: "IVF Journey",
-      image: "https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop"
-    },
-    {
-      title: "Diet tips for a healthy pregnancy",
-      date: "Sep 28, 2025",
-      category: "Health & Diet",
-      image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=600&auto=format&fit=crop"
-    },
-    {
-      title: "How to manage stress during IVF treatments",
-      date: "Sep 15, 2025",
-      category: "Mental Wellness",
-      image: "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?q=80&w=600&auto=format&fit=crop"
-    }
-  ];
+  const blogs = blogData.slice(0, 3);
 
   return (
     <section className="py-20 md:py-28 bg-[#f8fbff] relative overflow-hidden">
@@ -44,18 +27,19 @@ export default function BlogsSection() {
             </p>
           </div>
           <div className="hidden md:block">
-            <button className="bg-white hover:bg-[#fcf8fa] text-[#145390] hover:text-[#ED2793] font-bold text-[15px] px-8 py-3.5 rounded-full shadow-md border border-gray-100 transition-all flex items-center gap-3 group active:scale-[0.98]">
+            <Link href="/blog" className="bg-white hover:bg-[#fcf8fa] text-[#145390] hover:text-[#ED2793] font-bold text-[15px] px-8 py-3.5 rounded-full shadow-md border border-gray-100 transition-all flex items-center gap-3 group active:scale-[0.98]">
               View All Articles
               <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {blogs.map((blog, index) => (
-            <div 
+            <Link 
+              href={`/blog/${blog.slug}`}
               key={index} 
-              className="group relative bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(20,83,144,0.1)] transition-all duration-500 cursor-pointer border border-transparent hover:border-gray-100 flex flex-col hover:-translate-y-2"
+              className="group relative bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(20,83,144,0.1)] transition-all duration-500 cursor-pointer border border-transparent hover:border-gray-100 flex flex-col hover:-translate-y-2 block"
             >
               {/* Image Container */}
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -93,7 +77,7 @@ export default function BlogsSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

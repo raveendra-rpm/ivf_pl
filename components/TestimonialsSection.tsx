@@ -1,10 +1,21 @@
 "use client";
 
-import { useRef } from 'react';
-import { Play, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
+import Link from 'next/link';
+import { Play, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 export default function TestimonialsSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [activeVideoId, setActiveVideoId] = useState<number | null>(null);
+
+  // Close modal on escape key
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActiveVideoId(null);
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
 
   const testimonials = [
     { id: 1, link: "https://www.youtube.com/watch?v=ICIDc8_pZFU", image: "https://img.youtube.com/vi/ICIDc8_pZFU/hqdefault.jpg" },
@@ -76,34 +87,34 @@ export default function TestimonialsSection() {
           ref={scrollContainerRef}
           className="flex gap-5 md:gap-8 overflow-x-auto snap-x snap-mandatory hide-scrollbar scroll-smooth pb-12 -mx-4 px-4 md:mx-0 md:px-0"
         >
-          {testimonials.map((item) => (
-            <a 
-              key={item.id} 
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group rounded-[2rem] overflow-hidden aspect-video bg-gray-900 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgb(237,39,147,0.15)] border-[6px] border-white shrink-0 w-[300px] sm:w-[360px] md:w-[440px] snap-center block transform transition-all duration-500"
-            >
-              <img 
-                src={item.image} 
-                alt="Patient Success Story" 
-                className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:via-black/10 transition-colors duration-500"></div>
-              
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-red-600 rounded-2xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500 transform group-hover:scale-110"></div>
-                  <div className="w-[72px] h-[52px] transform group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl relative z-10">
-                    <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
-                      <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#FF0000"></path>
-                      <path d="M 45,24 27,14 27,34" fill="#fff"></path>
-                    </svg>
+          {testimonials.map((item) => {
+            return (
+              <div 
+                key={item.id} 
+                onClick={() => setActiveVideoId(item.id)}
+                className="relative group rounded-[2rem] overflow-hidden aspect-video bg-gray-900 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgb(237,39,147,0.15)] border-[6px] border-white shrink-0 w-[300px] sm:w-[360px] md:w-[440px] snap-center block transform transition-all duration-500 cursor-pointer"
+              >
+                <img 
+                  src={item.image} 
+                  alt="Patient Success Story" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:via-black/10 transition-colors duration-500"></div>
+                
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-red-600 rounded-2xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500 transform group-hover:scale-110"></div>
+                    <div className="w-[72px] h-[52px] transform group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl relative z-10">
+                      <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
+                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#FF0000"></path>
+                        <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
-            </a>
-          ))}
+            );
+          })}
         </div>
         
         <div className="flex justify-center gap-4 mt-2 md:hidden">
@@ -122,7 +133,47 @@ export default function TestimonialsSection() {
               <ChevronRight className="h-6 w-6" />
             </button>
         </div>
+
+        {/* View All Button */}
+        <div className="mt-12 flex justify-center">
+          <Link href="/success-stories" className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-300 bg-gradient-to-r from-[#ED2793] to-[#ff7eb3] rounded-full shadow-[0_8px_20px_rgba(237,39,147,0.3)] hover:shadow-[0_12px_25px_rgba(237,39,147,0.4)] hover:-translate-y-1">
+            View All Success Stories
+          </Link>
+        </div>
       </div>
+
+      {/* Video Modal Overlay */}
+      {activeVideoId !== null && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-12">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer transition-opacity"
+            onClick={() => setActiveVideoId(null)}
+          ></div>
+          
+          {/* Modal Content */}
+          <div className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl z-10 animate-in fade-in zoom-in duration-300">
+            {/* Close Button */}
+            <button 
+              className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center backdrop-blur-md transition-colors"
+              onClick={() => setActiveVideoId(null)}
+              aria-label="Close video"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            
+            {/* Iframe */}
+            <iframe
+              className="w-full h-full"
+              src={`https://www.youtube.com/embed/${testimonials.find(t => t.id === activeVideoId)?.link.split('v=')[1]}?autoplay=1`}
+              title="Patient Success Story"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
