@@ -10,10 +10,13 @@ export default function OurTeamPage() {
       <main className="flex-grow pt-[72px] xl:pt-[84px] bg-[#f8fbff]">
         
         {/* 1. HERO SECTION */}
-        <section className="bg-gradient-to-r from-[#145390] via-[#ED2793] to-[#ff7eb3] py-16 md:py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          <div className="absolute inset-0">
+            <img src="/images/about/our_team_banner.jpg" alt="Our Team" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#145390]/80 via-[#ED2793]/70 to-[#ff7eb3]/60"></div>
+          </div>
           <div className="container mx-auto px-4 relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white">Our Team</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">Our Team</h1>
           </div>
         </section>
 

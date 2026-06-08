@@ -47,13 +47,13 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-white pt-24 pb-12 relative overflow-hidden">
+    <footer className="bg-white dark:bg-gray-900 pt-24 pb-12 relative overflow-hidden transition-colors">
       {/* Decorative top border gradient */}
       <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#145390] via-[#ED2793] to-[#ff7eb3]"></div>
 
       {/* Background blobs for footer */}
-      <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-primary-pink/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-0 -left-40 w-[500px] h-[500px] bg-primary-blue/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-primary-pink/5 dark:bg-pink-900/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 -left-40 w-[500px] h-[500px] bg-primary-blue/5 dark:bg-blue-900/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-6 mb-16">
@@ -68,21 +68,21 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="text-gray-600 leading-relaxed text-[15px]">
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-[15px]">
               At Popular IVF, we make every effort to help you to have a healthy, adorable baby. Your desire to become a parent can come true with the help of our skilled medical staff. We can address all of your fertility issues and assist you in moving forward on your journey towards parenting thanks to our cutting-edge clinical setup.
             </p>
 
             <div className="flex items-center gap-4">
-              <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] flex items-center justify-center text-[#145390] hover:bg-[#ED2793] hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
+              <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] dark:bg-gray-800 flex items-center justify-center text-[#145390] dark:text-blue-300 hover:bg-[#ED2793] dark:hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
                 <FacebookIcon className="h-5 w-5" />
               </a>
-              <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] flex items-center justify-center text-[#145390] hover:bg-[#ED2793] hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
+              <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] dark:bg-gray-800 flex items-center justify-center text-[#145390] dark:text-blue-300 hover:bg-[#ED2793] dark:hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
                 <TwitterIcon className="h-5 w-5" />
               </a>
-              <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] flex items-center justify-center text-[#145390] hover:bg-[#ED2793] hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
+              <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] dark:bg-gray-800 flex items-center justify-center text-[#145390] dark:text-blue-300 hover:bg-[#ED2793] dark:hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
                 <InstagramIcon className="h-5 w-5" />
               </a>
-              <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] flex items-center justify-center text-[#145390] hover:bg-[#ED2793] hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
+              <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] dark:bg-gray-800 flex items-center justify-center text-[#145390] dark:text-blue-300 hover:bg-[#ED2793] dark:hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
                 <YoutubeIcon className="h-5 w-5" />
               </a>
             </div>
@@ -90,15 +90,15 @@ export default function Footer() {
 
           {/* Column 2: ABOUT US */}
           <div className="lg:col-span-2 lg:pl-2 pt-8">
-            <h3 className="text-lg font-extrabold text-[#145390] mb-8 flex items-center gap-3">
-              <span className="w-8 h-1 bg-[#ED2793] rounded-full"></span>
+            <h3 className="text-lg font-extrabold text-[#145390] dark:text-blue-100 mb-8 flex items-center gap-3">
+              <span className="w-8 h-1 bg-[#ED2793] dark:bg-pink-500 rounded-full"></span>
               About Us
             </h3>
             <ul className="space-y-4">
               {aboutLinks.map((link, idx) => (
                 <li key={idx}>
-                  <Link href={link.href} className="inline-flex items-center text-[16px] text-gray-600 font-medium hover:text-[#ED2793] transition-colors">
-                    <span className="text-[#ED2793] mr-2 text-sm font-bold">›</span>
+                  <Link href={link.href} className="inline-flex items-center text-[16px] text-gray-600 dark:text-gray-400 font-medium hover:text-[#ED2793] dark:hover:text-pink-400 transition-colors">
+                    <span className="text-[#ED2793] dark:text-pink-500 mr-2 text-sm font-bold">›</span>
                     {link.name}
                   </Link>
                 </li>
@@ -108,15 +108,15 @@ export default function Footer() {
 
           {/* Column 3: TREATMENT & SERVICES */}
           <div className="lg:col-span-2 pt-8">
-            <h3 className="text-lg font-extrabold text-[#145390] mb-8 flex items-center gap-3">
-              <span className="w-8 h-1 bg-[#ED2793] rounded-full"></span>
+            <h3 className="text-lg font-extrabold text-[#145390] dark:text-blue-100 mb-8 flex items-center gap-3">
+              <span className="w-8 h-1 bg-[#ED2793] dark:bg-pink-500 rounded-full"></span>
               Treatments
             </h3>
             <ul className="space-y-4">
               {treatmentLinks.map((link, idx) => (
                 <li key={idx}>
-                  <Link href={link.href} className="inline-flex items-center text-[16px] text-gray-600 font-medium hover:text-[#ED2793] transition-colors">
-                    <span className="text-[#ED2793] mr-2 text-sm font-bold">›</span>
+                  <Link href={link.href} className="inline-flex items-center text-[16px] text-gray-600 dark:text-gray-400 font-medium hover:text-[#ED2793] dark:hover:text-pink-400 transition-colors">
+                    <span className="text-[#ED2793] dark:text-pink-500 mr-2 text-sm font-bold">›</span>
                     {link.name}
                   </Link>
                 </li>
@@ -126,48 +126,48 @@ export default function Footer() {
 
           {/* Column 4: GET IN TOUCH */}
           <div className="lg:col-span-4 relative">
-            <div className="bg-gradient-to-br from-[#f8fbff] to-[#fdf0f7]/50 rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-[#145390]/5 h-full">
-              <h3 className="text-lg font-extrabold text-[#145390] mb-6 flex items-center gap-3">
-                <span className="w-8 h-1 bg-[#ED2793] rounded-full"></span>
+            <div className="bg-gradient-to-br from-[#f8fbff] dark:from-gray-800 to-[#fdf0f7]/50 dark:to-gray-800 rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.03)] dark:shadow-none border border-[#145390]/5 dark:border-gray-700 h-full">
+              <h3 className="text-lg font-extrabold text-[#145390] dark:text-blue-100 mb-6 flex items-center gap-3">
+                <span className="w-8 h-1 bg-[#ED2793] dark:bg-pink-500 rounded-full"></span>
                 Get In Touch
               </h3>
 
               <div className="space-y-5 text-[15px]">
-                <h4 className="font-bold text-gray-900 text-lg mb-2">Popular IVF</h4>
+                <h4 className="font-bold text-gray-900 dark:text-gray-100 text-lg mb-2">Popular IVF</h4>
 
                 <div className="flex items-start gap-4 group">
-                  <div className="mt-1 bg-white p-2 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0 text-[#ED2793]">
+                  <div className="mt-1 bg-white dark:bg-gray-700 p-2 rounded-xl shadow-sm dark:shadow-none group-hover:shadow-md transition-shadow shrink-0 text-[#ED2793] dark:text-pink-400">
                     <MapPin className="h-5 w-5" />
                   </div>
-                  <span className="text-gray-600 font-medium leading-relaxed pt-1">
+                  <span className="text-gray-600 dark:text-gray-300 font-medium leading-relaxed pt-1">
                     B.L.W Road, Kakarmatta Varanasi, Uttar Pradesh, India 221001
                   </span>
                 </div>
 
                 <div className="flex items-center gap-4 group">
-                  <div className="bg-white p-2 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0 text-[#ED2793]">
+                  <div className="bg-white dark:bg-gray-700 p-2 rounded-xl shadow-sm dark:shadow-none group-hover:shadow-md transition-shadow shrink-0 text-[#ED2793] dark:text-pink-400">
                     <Mail className="h-5 w-5" />
                   </div>
-                  <span className="text-gray-600 font-medium break-all">hello@popularivf.com</span>
+                  <span className="text-gray-600 dark:text-gray-300 font-medium break-all">hello@popularivf.com</span>
                 </div>
 
                 <div className="flex items-center gap-4 group">
-                  <div className="bg-white p-2 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0 text-[#ED2793]">
+                  <div className="bg-white dark:bg-gray-700 p-2 rounded-xl shadow-sm dark:shadow-none group-hover:shadow-md transition-shadow shrink-0 text-[#ED2793] dark:text-pink-400">
                     <Phone className="h-5 w-5" />
                   </div>
-                  <a href="tel:+919151000135" className="text-gray-600 font-medium hover:text-[#ED2793] transition-colors">+91 9151000135</a>
+                  <a href="tel:+919151000135" className="text-gray-600 dark:text-gray-300 font-medium hover:text-[#ED2793] dark:hover:text-pink-400 transition-colors">+91 9151000135</a>
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-200/60 space-y-3 text-[14px]">
-                <div className="flex justify-between items-center"><span className="font-bold text-gray-600">Helpline no.:</span> <a href="tel:+917800001896" className="font-bold text-[#145390] hover:text-[#ED2793] transition-colors">+91 7800001896</a></div>
-                <div className="flex justify-between items-center"><span className="font-bold text-gray-600">Toll Free No:</span> <a href="tel:1800121141000" className="font-bold text-[#145390] hover:text-[#ED2793] transition-colors">1800121141000</a></div>
+              <div className="mt-8 pt-6 border-t border-gray-200/60 dark:border-gray-700 space-y-3 text-[14px]">
+                <div className="flex justify-between items-center"><span className="font-bold text-gray-600 dark:text-gray-400">Helpline no.:</span> <a href="tel:+917800001896" className="font-bold text-[#145390] dark:text-blue-300 hover:text-[#ED2793] transition-colors">+91 7800001896</a></div>
+                <div className="flex justify-between items-center"><span className="font-bold text-gray-600 dark:text-gray-400">Toll Free No:</span> <a href="tel:1800121141000" className="font-bold text-[#145390] dark:text-blue-300 hover:text-[#ED2793] transition-colors">1800121141000</a></div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-100 pt-8 mt-4 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-gray-500 font-medium relative z-10">
+        <div className="border-t border-gray-100 dark:border-gray-800 pt-8 mt-4 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-gray-500 dark:text-gray-400 font-medium relative z-10">
           <p className="text-center md:text-left">
             &copy; {new Date().getFullYear()} Popular IVF. All rights reserved. | Made by{' '}
             <a

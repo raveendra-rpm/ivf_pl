@@ -1,16 +1,121 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-primary-pink: #ED2793;
   --color-primary-blue: #145390;
-  --color-background-light: #fdf5f9; /* Light tint of pink */
-  --color-background-blue: #f0f4f8; /* Light tint of blue */
+  --color-background-light: #fdf5f9;
+  /* Light tint of pink */
+  --color-background-blue: #f0f4f8;
+  /* Light tint of blue */
   --font-sans: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", "Segoe UI", sans-serif;
 }
 
 @layer base {
   body {
-    @apply antialiased text-gray-800 bg-white font-sans;
+    @apply antialiased text-gray-800 bg-white dark:bg-gray-900 dark:text-gray-100 font-sans transition-colors duration-300;
     font-family: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", "Segoe UI", sans-serif !important;
+  }
+
+  /* Global Dark Mode Overrides for existing hardcoded light classes */
+  html.dark .bg-white {
+    background-color: #111827 !important;
+  }
+
+  html.dark .bg-\[\#f8fbff\] {
+    background-color: #1f2937 !important;
+  }
+
+  html.dark .bg-gray-50 {
+    background-color: #1f2937 !important;
+  }
+
+  html.dark .bg-gray-100 {
+    background-color: #374151 !important;
+  }
+
+  html.dark .bg-blue-50 {
+    background-color: #0f2942 !important;
+  }
+
+  html.dark .bg-pink-50 {
+    background-color: #3b1124 !important;
+  }
+
+  html.dark .text-gray-900 {
+    color: #f9fafb !important;
+  }
+
+  html.dark .text-gray-800 {
+    color: #f3f4f6 !important;
+  }
+
+  html.dark .text-gray-700 {
+    color: #e5e7eb !important;
+  }
+
+  html.dark .text-gray-600 {
+    color: #d1d5db !important;
+  }
+
+  html.dark .text-gray-500 {
+    color: #9ca3af !important;
+  }
+
+  html.dark .text-\[\#145390\] {
+    color: #93c5fd !important;
+  }
+
+  html.dark .text-primary-blue {
+    color: #93c5fd !important;
+  }
+
+  html.dark .border-gray-100 {
+    border-color: #374151 !important;
+  }
+
+  html.dark .border-gray-200 {
+    border-color: #4b5563 !important;
+  }
+
+  html.dark .border-pink-100 {
+    border-color: #500724 !important;
+  }
+
+  html.dark .border-blue-100 {
+    border-color: #1e3a8a !important;
+  }
+
+  /* Soften shadows in dark mode */
+  html.dark .shadow-sm,
+  html.dark .shadow,
+  html.dark .shadow-md,
+  html.dark .shadow-lg,
+  html.dark .shadow-xl {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  /* Custom Thin Scrollbar for all browsers */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ED2793;
   }
 }

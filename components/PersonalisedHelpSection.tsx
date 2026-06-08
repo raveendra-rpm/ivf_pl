@@ -14,11 +14,15 @@ const options = [
   },
   {
     icon: <Microscope className="w-5 h-5" />,
-    label: "I am suffering from Azoospermia / Zero Sperm Count.",
+    label: "I am suffering from Azoospermia / Low /Zero Sperm Count.",
   },
   {
     icon: <HelpCircle className="w-5 h-5" />,
     label: "I have been trying for a baby (First or Second) for more than a year / Don't know the reason.",
+  },
+  {
+    icon: <HeartPulse className="w-5 h-5" />,
+    label: "I am suffering from irregular menses/no menses",
   },
 ];
 
@@ -26,13 +30,13 @@ export default function PersonalisedHelpSection() {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
 
   return (
-    <section className="py-16 md:py-24 bg-[#f4f8fd] relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-[#f4f8fd] dark:bg-gray-900 relative overflow-hidden transition-colors">
       {/* Decorative blobs */}
-      <div className="absolute top-0 left-0 w-80 h-80 bg-[#dbeafe] rounded-full blur-3xl opacity-40 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#fce7f3] rounded-full blur-3xl opacity-40 translate-x-1/3 translate-y-1/3 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-80 h-80 bg-[#dbeafe] dark:bg-blue-900/20 rounded-full blur-3xl opacity-40 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#fce7f3] dark:bg-pink-900/20 rounded-full blur-3xl opacity-40 translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
-        <div className="bg-white rounded-3xl shadow-[0_1px_4px_rgba(0,0,0,0.16)] overflow-hidden grid grid-cols-1 lg:grid-cols-5">
+        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-[0_1px_4px_rgba(0,0,0,0.16)] dark:shadow-none dark:border dark:border-gray-700 overflow-hidden grid grid-cols-1 lg:grid-cols-5">
 
           {/* ── LEFT PANEL ── */}
           <div className="lg:col-span-2 bg-gradient-to-br from-[#145390] via-[#1a6abf] to-[#0e3d6e] p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
@@ -85,10 +89,10 @@ export default function PersonalisedHelpSection() {
           <div className="lg:col-span-3 p-8 md:p-12 flex flex-col justify-between">
             <div>
               <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-1">Step 1 of 1</p>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                 What best describes your situation?
               </h3>
-              <p className="text-gray-500 text-sm mb-8">Select the option that applies to you:</p>
+              <p className="text-gray-500 dark:text-gray-400 text-sm mb-8">Select the option that applies to you:</p>
 
               {/* Options */}
               <div className="space-y-3">
@@ -101,23 +105,23 @@ export default function PersonalisedHelpSection() {
                       className={`w-full text-left cursor-pointer rounded-2xl px-5 py-4 flex items-center gap-4 transition-all duration-300 border-2 group ${
                         isSelected
                           ? 'bg-[#145390] border-[#145390] text-white shadow-lg scale-[1.01]'
-                          : 'bg-[#f8fafc] border-transparent hover:border-[#145390]/30 hover:bg-[#eef4fb] text-gray-700 shadow-sm'
+                          : 'bg-[#f8fafc] dark:bg-gray-800/50 border-transparent hover:border-[#145390]/30 hover:bg-[#eef4fb] dark:hover:bg-gray-700 dark:border-gray-700 text-gray-700 dark:text-gray-300 shadow-sm dark:shadow-none'
                       }`}
                     >
                       {/* Radio */}
                       <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${
-                        isSelected ? 'border-white bg-white/20' : 'border-[#145390]/50 group-hover:border-[#145390]'
+                        isSelected ? 'border-white bg-white/20' : 'border-[#145390]/50 dark:border-gray-500 group-hover:border-[#145390] dark:group-hover:border-blue-400'
                       }`}>
                         {isSelected && <div className="w-2.5 h-2.5 bg-white rounded-full" />}
                       </div>
 
                       {/* Icon */}
-                      <div className={`shrink-0 transition-colors ${isSelected ? 'text-blue-200' : 'text-[#145390]'}`}>
+                      <div className={`shrink-0 transition-colors ${isSelected ? 'text-blue-200' : 'text-[#145390] dark:text-blue-400'}`}>
                         {option.icon}
                       </div>
 
                       {/* Label */}
-                      <span className={`font-medium text-sm md:text-[15px] leading-snug ${isSelected ? 'text-white' : 'text-gray-800'}`}>
+                      <span className={`font-medium text-sm md:text-[15px] leading-snug ${isSelected ? 'text-white' : 'text-gray-800 dark:text-gray-200'}`}>
                         {option.label}
                       </span>
 
@@ -136,7 +140,7 @@ export default function PersonalisedHelpSection() {
             </div>
 
             {/* Next Button */}
-            <div className="flex items-center justify-between mt-10 pt-6 border-t border-gray-100">
+            <div className="flex items-center justify-between mt-10 pt-6 border-t border-gray-100 dark:border-gray-700">
               <p className="text-xs text-gray-400">
                 {selectedOption !== null
                   ? '✓ Option selected — click Next to proceed'

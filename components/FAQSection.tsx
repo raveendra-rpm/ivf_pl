@@ -75,23 +75,23 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-20 md:py-28 bg-[#fcf8fa] relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-[#fcf8fa] dark:bg-gray-900 relative overflow-hidden transition-colors">
       {/* Background Blobs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-pink/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary-blue/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-pink/5 dark:bg-pink-900/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary-blue/5 dark:bg-blue-900/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 max-w-4xl relative z-10">
         
         {/* Header Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-white text-[#ED2793] text-xs font-bold px-5 py-2.5 rounded-full mb-6 tracking-wide uppercase border border-[#ED2793]/10 shadow-[0_4px_15px_rgba(237,39,147,0.05)]">
-            <span className="w-2 h-2 rounded-full bg-[#ED2793] inline-block animate-pulse shadow-[0_0_8px_rgba(237,39,147,0.8)]"></span>
+          <div className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-[#ED2793] dark:text-pink-400 text-xs font-bold px-5 py-2.5 rounded-full mb-6 tracking-wide uppercase border border-[#ED2793]/10 dark:border-pink-500/20 shadow-[0_4px_15px_rgba(237,39,147,0.05)] dark:shadow-none">
+            <span className="w-2 h-2 rounded-full bg-[#ED2793] dark:bg-pink-400 inline-block animate-pulse shadow-[0_0_8px_rgba(237,39,147,0.8)]"></span>
             Any Questions?
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#145390] mb-6 leading-tight">
-            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ED2793] to-[#ff7eb3]">Questions</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#145390] dark:text-blue-100 mb-6 leading-tight">
+            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ED2793] dark:from-pink-400 to-[#ff7eb3] dark:to-pink-300">Questions</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
             Find answers to common questions about our fertility treatments, processes, and what to expect on your journey.
           </p>
         </div>
@@ -105,19 +105,19 @@ export default function FAQSection() {
                 key={index} 
                 className={`transition-all duration-500 rounded-[2rem] border ${
                   isActive 
-                    ? 'bg-white border-[#ED2793]/20 shadow-[0_15px_40px_rgba(237,39,147,0.08)]' 
-                    : 'bg-white border-transparent shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_35px_rgba(20,83,144,0.08)]'
+                    ? 'bg-white dark:bg-gray-800 border-[#ED2793]/20 dark:border-pink-500/30 shadow-[0_15px_40px_rgba(237,39,147,0.08)] dark:shadow-none' 
+                    : 'bg-white dark:bg-gray-800 border-transparent dark:border-gray-700 shadow-[0_8px_30px_rgba(0,0,0,0.03)] dark:shadow-none hover:shadow-[0_10px_35px_rgba(20,83,144,0.08)] dark:hover:border-gray-600'
                 }`}
               >
                 <button
                   className="w-full text-left flex items-center justify-between px-6 py-4 md:px-8 md:py-5 group"
                   onClick={() => setOpenIndex(isActive ? null : index)}
                 >
-                  <span className={`pr-4 text-[16px] md:text-[18px] font-bold transition-colors duration-300 ${isActive ? 'text-[#ED2793]' : 'text-[#145390] group-hover:text-[#ED2793]'}`}>
+                  <span className={`pr-4 text-[16px] md:text-[18px] font-bold transition-colors duration-300 ${isActive ? 'text-[#ED2793] dark:text-pink-400' : 'text-[#145390] dark:text-blue-100 group-hover:text-[#ED2793] dark:group-hover:text-pink-400'}`}>
                     {faq.question}
                   </span>
-                  <div className={`shrink-0 flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full transition-all duration-500 shadow-sm ${
-                    isActive ? 'bg-[#ED2793] text-white rotate-180' : 'bg-[#f8fbff] text-[#145390] group-hover:bg-[#fdf0f7] group-hover:text-[#ED2793]'
+                  <div className={`shrink-0 flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full transition-all duration-500 shadow-sm dark:shadow-none ${
+                    isActive ? 'bg-[#ED2793] dark:bg-pink-500 text-white rotate-180' : 'bg-[#f8fbff] dark:bg-gray-700 text-[#145390] dark:text-blue-300 group-hover:bg-[#fdf0f7] dark:group-hover:bg-pink-900/30 group-hover:text-[#ED2793] dark:group-hover:text-pink-400'
                   }`}>
                     <Plus className={`h-4 w-4 md:h-5 md:w-5 transition-transform duration-500 ${isActive ? 'rotate-45' : ''}`} strokeWidth={2.5} />
                   </div>
@@ -129,8 +129,8 @@ export default function FAQSection() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="px-6 md:px-8 pb-6 md:pb-8 text-gray-600 text-[15px] leading-relaxed">
-                      <div className="pt-5 border-t border-gray-100">
+                    <div className="px-6 md:px-8 pb-6 md:pb-8 text-gray-600 dark:text-gray-300 text-[15px] leading-relaxed">
+                      <div className="pt-5 border-t border-gray-100 dark:border-gray-700">
                         {faq.answer}
                       </div>
                     </div>

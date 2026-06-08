@@ -39,22 +39,22 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-white to-[#fdf0f7]/30 overflow-hidden relative">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-white dark:from-gray-900 to-[#fdf0f7]/30 dark:to-pink-900/10 overflow-hidden relative transition-colors">
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#fdf0f7] to-transparent opacity-50 pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-primary-pink/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#fdf0f7] dark:from-pink-900/10 to-transparent opacity-50 pointer-events-none" />
+      <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-primary-pink/5 dark:bg-pink-900/20 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-[#fdf0f7] text-[#ED2793] text-xs font-bold px-4 py-2 rounded-full mb-5 tracking-wide uppercase border border-[#ED2793]/10 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#ED2793] inline-block animate-pulse shadow-[0_0_8px_rgba(237,39,147,0.8)]"></span>
+            <div className="inline-flex items-center gap-2 bg-[#fdf0f7] dark:bg-pink-900/30 text-[#ED2793] dark:text-pink-400 text-xs font-bold px-4 py-2 rounded-full mb-5 tracking-wide uppercase border border-[#ED2793]/10 dark:border-pink-500/20 shadow-sm dark:shadow-none">
+              <span className="w-2 h-2 rounded-full bg-[#ED2793] dark:bg-pink-400 inline-block animate-pulse shadow-[0_0_8px_rgba(237,39,147,0.8)]"></span>
               Testimonials
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#145390] mb-4 leading-tight">
-              Patient <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ED2793] to-[#ff7eb3]">Success Stories</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#145390] dark:text-blue-100 mb-4 leading-tight">
+              Patient <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ED2793] dark:from-pink-400 to-[#ff7eb3] dark:to-pink-300">Success Stories</span>
             </h2>
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
               Hear directly from our patients who have experienced the joy of parenthood through our dedicated care and advanced fertility treatments.
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function TestimonialsSection() {
           <div className="hidden md:flex gap-3 shrink-0">
             <button 
               onClick={scrollLeft}
-              className="w-12 h-12 bg-white border border-gray-100 hover:border-[#ED2793]/30 text-[#145390] hover:text-[#ED2793] rounded-full transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg"
+              className="w-12 h-12 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:border-[#ED2793]/30 dark:hover:border-pink-500/50 text-[#145390] dark:text-blue-300 hover:text-[#ED2793] dark:hover:text-pink-400 rounded-full transition-all duration-300 flex items-center justify-center shadow-md dark:shadow-none hover:shadow-lg"
               aria-label="Scroll left"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -92,7 +92,7 @@ export default function TestimonialsSection() {
               <div 
                 key={item.id} 
                 onClick={() => setActiveVideoId(item.id)}
-                className="relative group rounded-[2rem] overflow-hidden aspect-video bg-gray-900 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgb(237,39,147,0.15)] border-[6px] border-white shrink-0 w-[300px] sm:w-[360px] md:w-[440px] snap-center block transform transition-all duration-500 cursor-pointer"
+                className="relative group rounded-[2rem] overflow-hidden aspect-video bg-gray-900 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgb(237,39,147,0.15)] border-[6px] border-white dark:border-gray-800 shrink-0 w-[300px] sm:w-[360px] md:w-[440px] snap-center block transform transition-all duration-500 cursor-pointer"
               >
                 <img 
                   src={item.image} 
@@ -120,7 +120,7 @@ export default function TestimonialsSection() {
         <div className="flex justify-center gap-4 mt-2 md:hidden">
             <button 
               onClick={scrollLeft}
-              className="w-12 h-12 bg-white border border-gray-100 text-[#145390] rounded-full flex items-center justify-center shadow-md active:scale-95 transition-transform"
+              className="w-12 h-12 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 text-[#145390] dark:text-blue-300 rounded-full flex items-center justify-center shadow-md dark:shadow-none active:scale-95 transition-transform"
               aria-label="Scroll left"
             >
               <ChevronLeft className="h-6 w-6" />

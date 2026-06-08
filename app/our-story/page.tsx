@@ -21,10 +21,13 @@ export default function OurStoryPage() {
       <main className="flex-grow pt-[72px] xl:pt-[84px] bg-[#f8fbff]">
 
         {/* 1. HERO SECTION */}
-        <section className="bg-gradient-to-r from-[#145390] via-[#ED2793] to-[#ff7eb3] py-16 md:py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          <div className="absolute inset-0">
+            <img src="/images/about/about_us_banner.jpeg" alt="About Us" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#145390]/80 via-[#ED2793]/70 to-[#ff7eb3]/60"></div>
+          </div>
           <div className="container mx-auto px-4 relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white">About Us</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">About Us</h1>
           </div>
         </section>
 
@@ -80,14 +83,14 @@ export default function OurStoryPage() {
                 <div className="absolute inset-0 bg-[#145390]/5 rounded-[3rem] transform rotate-3 scale-105 transition-transform hover:rotate-0 duration-700" />
                 <div className="relative w-full h-full bg-white rounded-[3rem] shadow-2xl p-4 flex flex-col gap-4 z-10">
                   <div className="flex-1 rounded-[2.5rem] overflow-hidden relative group">
-                    <img src="/cordial-staff.webp" alt="Ultrasound 1" className="w-full h-full object-cover transition-transform duration-700" />
+                    <img src="/images/about/about_overview_main.jpeg" alt="Overview Main" className="w-full h-full object-cover transition-transform duration-700" />
                   </div>
                   <div className="h-[220px] flex gap-4">
                     <div className="flex-1 rounded-[2rem] overflow-hidden relative group">
-                      <img src="/advance-technology.webp" alt="Pregnant Belly" className="w-full h-full object-cover transition-transform duration-700" />
+                      <img src="/images/about/about_overview_semen.jpeg" alt="Overview Semen" className="w-full h-full object-cover transition-transform duration-700" />
                     </div>
                     <div className="w-[45%] rounded-[2rem] overflow-hidden relative group">
-                      <img src="/transparent-pricing.webp" alt="Ultrasound 2" className="w-full h-full object-cover transition-transform duration-700" />
+                      <img src="/images/about/about_overview_lst.jpeg" alt="Overview LST" className="w-full h-full object-cover transition-transform duration-700" />
                     </div>
                   </div>
                 </div>
@@ -176,7 +179,7 @@ export default function OurStoryPage() {
                 <div className="bg-white rounded-[2.5rem] p-3 shadow-xl h-full min-h-[400px] border border-gray-100 group">
                   <div className="relative w-full h-full rounded-[2rem] overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
-                    <img src="/cordial-staff.webp" alt="Baby feet in hands" className="absolute inset-0 w-full h-full object-cover" />
+                    <img src="/images/about/about_ivf_fertility_four.jpeg" alt="Baby feet in hands" className="absolute inset-0 w-full h-full object-cover" />
                     <div className="absolute bottom-6 left-6 right-6 z-20 text-white">
                       <p className="font-medium text-sm md:text-base leading-relaxed drop-shadow-md">
                         Various updated and latest technologies including controlled ovarian stimulation, IUI, IVF and ICSI are being practiced daily to get the best results.
@@ -204,7 +207,7 @@ export default function OurStoryPage() {
               <div className="relative h-[450px] md:h-[600px] w-full">
                 <div className="absolute inset-0 bg-[#ED2793]/10 rounded-[3rem] transform -rotate-3" />
                 <div className="relative w-full h-full rounded-[3rem] overflow-hidden shadow-xl border-4 border-white">
-                  <img src="/advance-technology.webp" alt="Baby on rug" className="w-full h-full object-cover" />
+                  <img src="/images/about/about_overview.jpeg" alt="Baby on rug" className="w-full h-full object-cover" />
                 </div>
               </div>
 
@@ -379,7 +382,7 @@ export default function OurStoryPage() {
 
             {/* Professional Image Banner below grid */}
             <div className="mt-16 w-full h-[300px] md:h-[400px] rounded-[2.5rem] overflow-hidden relative shadow-sm border border-gray-100">
-              <img src="/clinically-reliable.webp" alt="Couple" className="absolute inset-0 w-full h-full object-cover" />
+              <img src="/images/about/about_us_banner.jpeg" alt="About Us Banner" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-[#145390]/90 via-[#145390]/60 to-transparent" />
               <div className="absolute inset-0 p-8 md:p-16 flex flex-col justify-center">
                 <h3 className="text-3xl md:text-4xl font-extrabold text-white max-w-lg mb-4">Dedicated to Your Wellbeing</h3>

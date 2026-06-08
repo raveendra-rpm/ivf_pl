@@ -1,4 +1,5 @@
 import { ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function TreatmentsSection() {
   const treatments = [
@@ -67,19 +68,19 @@ export default function TreatmentsSection() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-[#f8fbff] relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-[#f8fbff] dark:bg-gray-900 relative overflow-hidden transition-colors">
       {/* Background glowing blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-primary-pink/10 rounded-full blur-[80px]" />
-        <div className="absolute top-[40%] -left-40 w-[600px] h-[600px] bg-primary-blue/5 rounded-full blur-[100px]" />
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-primary-pink/10 dark:bg-pink-900/20 rounded-full blur-[80px]" />
+        <div className="absolute top-[40%] -left-40 w-[600px] h-[600px] bg-primary-blue/5 dark:bg-blue-900/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
         <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#145390] mb-6">
-            Our Services & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ED2793] to-[#ff7eb3]">Treatments</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#145390] dark:text-blue-100 mb-6">
+            Our Services & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ED2793] dark:from-pink-400 to-[#ff7eb3] dark:to-pink-300">Treatments</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             We provide world-class fertility treatments with advanced technology, compassionate care, and transparent pricing to help you achieve your dream of parenthood.
           </p>
         </div>
@@ -88,8 +89,13 @@ export default function TreatmentsSection() {
           {treatments.map((treatment, index) => (
             <div 
               key={index} 
-              className="group relative bg-white rounded-[2rem] p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[220px] cursor-pointer border border-gray-50 hover:border-[#ED2793]/20"
+              className="group relative bg-white dark:bg-gray-800 rounded-[2rem] p-8 shadow-sm dark:shadow-none hover:shadow-lg hover:-translate-y-1 transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[220px] cursor-pointer border border-gray-50 dark:border-gray-700 hover:border-[#ED2793]/20 dark:hover:border-pink-500/30"
             >
+              {/* Link Wrapper */}
+              <Link href={`/services/${treatment.title.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} className="absolute inset-0 z-20">
+                <span className="sr-only">View {treatment.title} services</span>
+              </Link>
+              
               {/* Hover gradient background */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#145390]/[0.02] to-[#ED2793]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
@@ -98,16 +104,16 @@ export default function TreatmentsSection() {
 
               <div className="relative z-10">
                 {/* Icon container */}
-                <div className="w-16 h-16 rounded-2xl bg-[#f8fbff] flex items-center justify-center mb-8 transform group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(237,39,147,0.15)] transition-all duration-500 border border-[#e8f1fb]">
+                <div className="w-16 h-16 rounded-2xl bg-[#f8fbff] dark:bg-gray-700 flex items-center justify-center mb-8 transform group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(237,39,147,0.15)] transition-all duration-500 border border-[#e8f1fb] dark:border-gray-600">
                   {treatment.icon}
                 </div>
 
                 {/* Title & Arrow Row */}
                 <div className="flex items-end justify-between w-full mt-auto">
-                  <h3 className="text-xl font-bold text-[#145390] leading-tight group-hover:text-[#ED2793] transition-colors pr-4">
+                  <h3 className="text-xl font-bold text-[#145390] dark:text-blue-100 leading-tight group-hover:text-[#ED2793] dark:group-hover:text-pink-400 transition-colors pr-4">
                     {treatment.title}
                   </h3>
-                  <div className="w-10 h-10 rounded-full bg-[#f8fbff] group-hover:bg-[#ED2793] flex items-center justify-center text-[#145390] group-hover:text-white transition-all transform group-hover:translate-x-1 shrink-0 group-hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)] border border-[#e8f1fb] group-hover:border-transparent">
+                  <div className="w-10 h-10 rounded-full bg-[#f8fbff] dark:bg-gray-700 group-hover:bg-[#ED2793] dark:group-hover:bg-pink-500 flex items-center justify-center text-[#145390] dark:text-blue-200 group-hover:text-white transition-all transform group-hover:translate-x-1 shrink-0 group-hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)] border border-[#e8f1fb] dark:border-gray-600 group-hover:border-transparent">
                     <ChevronRight className="h-5 w-5" />
                   </div>
                 </div>

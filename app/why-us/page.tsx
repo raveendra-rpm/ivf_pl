@@ -11,10 +11,13 @@ export default function WhyUsPage() {
       <main className="flex-grow pt-[72px] xl:pt-[84px] bg-[#f8fbff]">
         
         {/* 1. HERO SECTION */}
-        <section className="bg-gradient-to-r from-[#145390] via-[#ED2793] to-[#ff7eb3] py-16 md:py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          <div className="absolute inset-0">
+            <img src="/images/about/why_us_banner.jpeg" alt="Why Us" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#145390]/80 via-[#ED2793]/70 to-[#ff7eb3]/60"></div>
+          </div>
           <div className="container mx-auto px-4 relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white">Why Us?</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">Why Us?</h1>
           </div>
         </section>
 
@@ -51,7 +54,7 @@ export default function WhyUsPage() {
               {/* Single Image */}
               <div className="w-full relative">
                 <div className="relative rounded-[2.5rem] overflow-hidden border-4 border-white bg-gray-100 aspect-[4/3] lg:aspect-auto lg:h-[500px]">
-                  <img src="/cordial-staff.webp" alt="Why People Prefer Us" className="absolute inset-0 w-full h-full object-cover" />
+                  <img src="/images/about/about_overview.jpeg" alt="Why People Prefer Us" className="absolute inset-0 w-full h-full object-cover" />
                 </div>
               </div>
 
@@ -126,7 +129,7 @@ export default function WhyUsPage() {
               
               <div className="w-full relative">
                 <div className="relative rounded-[2.5rem] overflow-hidden border-4 border-white bg-gray-100 aspect-[4/3]">
-                  <img src="/advance-technology.webp" alt="Baby on rug" className="absolute inset-0 w-full h-full object-cover" />
+                  <img src="/images/about/about_us_fertility_care.jpeg" alt="Baby on rug" className="absolute inset-0 w-full h-full object-cover" />
                 </div>
               </div>
 

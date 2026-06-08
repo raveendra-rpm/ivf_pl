@@ -45,16 +45,16 @@ export default function WhyIVFSection() {
 
   const stats = [
     { value: "10,000+", label: "Happy Families" },
-    { value: "15+", label: "Years of Experience" },
-    { value: "70%+", label: "IVF Success Rate" },
-    { value: "50+", label: "Expert Specialists" },
+    { value: "5+", label: "Years of Experience" },
+    { value: "90%+", label: "IVF Success Rate" },
+    { value: "5+", label: "Expert Specialists" },
   ];
 
   return (
-    <section id="why-us" className="relative bg-white overflow-hidden pt-24 pb-0">
+    <section id="why-us" className="relative bg-white dark:bg-gray-900 overflow-hidden pt-24 pb-0 transition-colors">
       {/* Subtle background decoration */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#eef4fb] blur-3xl opacity-60 -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#fdf0f7] blur-3xl opacity-50 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#eef4fb] dark:bg-[#145390]/10 blur-3xl opacity-60 -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#fdf0f7] dark:bg-[#ED2793]/10 blur-3xl opacity-50 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
 
@@ -64,27 +64,27 @@ export default function WhyIVFSection() {
           {/* Left: Text Content */}
           <div>
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#e8f1fb] text-[#145390] text-xs font-semibold px-4 py-2 rounded-full mb-5 tracking-wide uppercase">
-              <span className="w-2 h-2 rounded-full bg-[#145390] inline-block"></span>
+            <div className="inline-flex items-center gap-2 bg-[#e8f1fb] dark:bg-blue-900/30 text-[#145390] dark:text-blue-300 text-xs font-semibold px-4 py-2 rounded-full mb-5 tracking-wide uppercase border border-transparent dark:border-blue-800/50">
+              <span className="w-2 h-2 rounded-full bg-[#145390] dark:bg-blue-400 inline-block"></span>
               Trusted Fertility Center — Varanasi
             </div>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#145390] leading-tight mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#145390] dark:text-blue-100 leading-tight mb-6">
               Best Hospital for<br />
-              <span className="text-[#ED2793]">IVF Treatment</span>
+              <span className="text-[#ED2793] dark:text-pink-400">IVF Treatment</span>
             </h2>
 
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-5 font-medium">
-              The Popular Hospital is the best Hospital for IVF Treatment in Varanasi. We offer <span className="text-[#145390] font-semibold">affordable, transparent fertility therapies</span> that are clinically reliable, sympathetic, and trustworthy.
+            <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-5 font-medium">
+              The Popular Hospital is the best Hospital for IVF Treatment in Varanasi. We offer <span className="text-[#145390] dark:text-blue-300 font-semibold">affordable, transparent fertility therapies</span> that are clinically reliable, sympathetic, and trustworthy.
             </p>
 
-            <p className="text-sm md:text-base text-gray-500 leading-relaxed mb-8">
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
               At Popular IVF, we make every effort to help you to have a healthy, adorable baby. Your desire to become a parent can come true with the help of our skilled medical staff. We can address all of your fertility issues and assist you in moving forward on your journey towards parenting thanks to our cutting-edge clinical setup, established medical tools &amp; equipment, and facilities.
             </p>
 
             {/* CTA Button */}
             <a
-              href="#contact"
+              href="http://localhost:3000/book-appointment"
               className="inline-flex items-center gap-3 bg-[#145390] hover:bg-[#0e3d6e] text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 group"
             >
               Book a Free Consultation
@@ -104,7 +104,7 @@ export default function WhyIVFSection() {
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className="group relative bg-white/70 backdrop-blur-xl rounded-[2rem] p-6 md:p-8 border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(20,83,144,0.08)] transition-all duration-500 overflow-hidden flex flex-col justify-center"
+                className="group relative bg-white/70 dark:bg-gray-800/80 backdrop-blur-xl rounded-[2rem] p-6 md:p-8 border border-white dark:border-gray-700 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:shadow-[0_20px_40px_rgb(20,83,144,0.08)] dark:hover:border-gray-600 transition-all duration-500 overflow-hidden flex flex-col justify-center"
               >
                 {/* Subtle gradient hover reveal */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#145390]/[0.03] to-[#ED2793]/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -113,11 +113,11 @@ export default function WhyIVFSection() {
                 <div className={`absolute top-0 left-0 w-full h-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${i % 2 === 0 ? 'bg-gradient-to-r from-[#145390] to-[#1a6ab8]' : 'bg-gradient-to-r from-[#ED2793] to-[#ff47a9]'}`} />
 
                 <div className="relative z-10 flex flex-col gap-1">
-                  <div className={`text-4xl md:text-[42px] font-extrabold tracking-tight mb-1 group-hover:scale-[1.03] transition-transform duration-500 origin-left ${i % 2 === 0 ? 'text-[#145390]' : 'text-[#ED2793]'}`}>
+                  <div className={`text-4xl md:text-[42px] font-extrabold tracking-tight mb-1 group-hover:scale-[1.03] transition-transform duration-500 origin-left ${i % 2 === 0 ? 'text-[#145390] dark:text-[#93c5fd]' : 'text-[#ED2793] dark:text-[#f472b6]'}`}>
                     {stat.value}
                   </div>
-                  <div className="text-sm md:text-base font-semibold text-gray-600 flex items-center gap-2">
-                    <span className={`w-1.5 h-1.5 rounded-full ${i % 2 === 0 ? 'bg-[#ED2793] shadow-[0_0_8px_rgba(237,39,147,0.5)]' : 'bg-[#145390] shadow-[0_0_8px_rgba(20,83,144,0.5)]'}`} />
+                  <div className="text-sm md:text-base font-semibold text-gray-600 dark:text-gray-300 flex items-center gap-2">
+                    <span className={`w-1.5 h-1.5 rounded-full ${i % 2 === 0 ? 'bg-[#ED2793] dark:bg-pink-400 shadow-[0_0_8px_rgba(237,39,147,0.5)]' : 'bg-[#145390] dark:bg-blue-400 shadow-[0_0_8px_rgba(20,83,144,0.5)]'}`} />
                     {stat.label}
                   </div>
                 </div>
@@ -134,7 +134,7 @@ export default function WhyIVFSection() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="group rounded-3xl overflow-hidden bg-white border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              className="group rounded-3xl overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-md hover:shadow-xl dark:shadow-none dark:hover:border-gray-600 transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
               {/* Image */}
               <div className="relative overflow-hidden h-44 md:h-56">
@@ -149,13 +149,13 @@ export default function WhyIVFSection() {
               {/* Content */}
               <div className="p-4 flex-grow flex flex-col gap-2">
                 {/* Icon pill */}
-                <div className="w-9 h-9 rounded-xl bg-[#e8f1fb] text-[#145390] flex items-center justify-center mb-1">
+                <div className="w-9 h-9 rounded-xl bg-[#e8f1fb] dark:bg-blue-900/30 text-[#145390] dark:text-blue-300 flex items-center justify-center mb-1 border border-transparent dark:border-blue-800/50">
                   {feature.icon}
                 </div>
-                <h3 className="font-bold text-gray-900 text-sm md:text-[15px] leading-snug">
+                <h3 className="font-bold text-gray-900 dark:text-gray-100 text-sm md:text-[15px] leading-snug">
                   {feature.title}
                 </h3>
-                <p className="text-xs text-gray-500 leading-relaxed hidden md:block">
+                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed hidden md:block">
                   {feature.desc}
                 </p>
               </div>

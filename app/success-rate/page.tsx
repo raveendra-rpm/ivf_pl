@@ -41,8 +41,8 @@ export default function SuccessRatePage() {
 
               {/* Right Side: Content Container */}
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#ED2793] to-[#145390] rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-                <div className="relative bg-white rounded-[2rem] p-8 md:p-12 shadow-xl ring-1 ring-gray-900/5">
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#ED2793] to-[#145390] rounded-[2.5rem] blur opacity-0 transition duration-1000"></div>
+                <div className="relative bg-white rounded-[2rem] p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow duration-300 ring-1 ring-gray-900/5">
                   <div className="space-y-6 text-gray-600 text-[16px] md:text-lg leading-relaxed font-medium">
                     <p>
                       IVF success rates depend on many factors including age, ovarian reserve, sperm quality, embryo quality, uterine health, and medical history.
