@@ -4,7 +4,20 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Phone, Menu, X, ChevronDown, ChevronRight, Sun, Moon } from 'lucide-react';
 
-const navLinks = [
+type NavLink = {
+  label: string;
+  href: string;
+  children?: {
+    label: string;
+    href: string;
+    children?: {
+      label: string;
+      href: string;
+    }[];
+  }[];
+};
+
+const navLinks: NavLink[] = [
   {
     label: 'About Us',
     href: '#',
