@@ -84,7 +84,7 @@ export default function WhyIVFSection() {
 
             {/* CTA Button */}
             <a
-              href="http://localhost:3000/book-appointment"
+              href="/book-appointment"
               className="inline-flex items-center gap-3 bg-[#145390] hover:bg-[#0e3d6e] text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 group"
             >
               Book a Free Consultation

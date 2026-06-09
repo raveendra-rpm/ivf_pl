@@ -138,7 +138,7 @@ export default function PricingSection() {
                     {/* CTA */}
                     <div className="px-7 pb-7">
                       <a
-                        href="#contact"
+                        href="/book-appointment"
                         className={`w-full block text-center py-3.5 px-6 rounded-xl font-bold text-sm bg-gradient-to-r ${plan.accentColor} text-white hover:opacity-90 transition-opacity shadow-lg`}
                       >
                         Book Free Consultation
@@ -181,7 +181,7 @@ export default function PricingSection() {
                   {/* CTA */}
                   <div className="px-7 pb-7">
                     <a
-                      href="#contact"
+                      href="/book-appointment"
                       className="w-full block text-center py-3.5 px-6 rounded-xl font-bold text-sm bg-[#f0f6ff] dark:bg-[#145390]/20 text-[#145390] dark:text-blue-300 hover:bg-[#145390] hover:text-white dark:hover:bg-[#145390] dark:hover:text-white transition-all duration-200 border border-[#145390]/20 dark:border-[#145390]/30"
                     >
                       Book Consultation

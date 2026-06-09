@@ -51,7 +51,7 @@ export default function RegionCoverageSection() {
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="#contact"
+                  href="/book-appointment"
                   className="inline-flex items-center justify-center gap-3 bg-[#ED2793] hover:bg-[#c71f7e] text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg shadow-[#ED2793]/30 hover:-translate-y-0.5 group"
                 >
                   Book Consultation
@@ -60,7 +60,7 @@ export default function RegionCoverageSection() {
                   </span>
                 </a>
                 <a
-                  href="tel:+910000000000"
+                  href="tel:9151000135"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/20 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300"
                 >
                   Call Helpdesk
