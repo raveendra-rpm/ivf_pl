@@ -21,13 +21,13 @@ export default function OurStoryPage() {
       <main className="flex-grow pt-[72px] xl:pt-[84px] bg-[#f8fbff]">
 
         {/* 1. HERO SECTION */}
-        <section className="relative py-24 md:py-32 overflow-hidden">
+        <section className="relative h-[280px] md:h-[360px] flex flex-col items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
             <img src="/images/about/about_us_banner.jpeg" alt="About Us" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#145390]/80 via-[#ED2793]/70 to-[#ff7eb3]/60"></div>
           </div>
-          <div className="container mx-auto px-4 relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">About Us</h1>
+          <div className="container mx-auto px-4 relative z-10 text-center mt-8">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg mb-4">About Us</h1>
           </div>
         </section>
 

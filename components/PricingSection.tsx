@@ -1,0 +1,239 @@
+'use client';
+
+import { CheckCircle2, IndianRupee, BadgePercent, Clock, ShieldCheck, Sparkles } from 'lucide-react';
+
+const pricingData = [
+  {
+    tag: 'Entry Level',
+    name: 'IUI Treatment',
+    price: '₹10,000',
+    priceNote: 'Starting from',
+    description: 'Intrauterine Insemination — ideal for mild fertility issues.',
+    features: [
+      'Follicular Monitoring',
+      'Sperm Wash & Preparation',
+      'IUI Procedure',
+      'Expert Consultation',
+    ],
+    accentColor: 'from-[#0ea5e9] to-[#145390]',
+    badgeBg: 'bg-sky-50 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300',
+    highlight: false,
+  },
+  {
+    tag: 'Most Popular',
+    name: 'IVF Treatment',
+    price: '₹1,10,000',
+    priceNote: 'Starting from',
+    description: 'In Vitro Fertilization — our most chosen path to parenthood.',
+    features: [
+      'Ovarian Stimulation',
+      'Egg Retrieval',
+      'Embryo Culture & Grading',
+      'Embryo Transfer',
+    ],
+    accentColor: 'from-[#145390] to-[#ED2793]',
+    badgeBg: 'bg-white/20 text-white',
+    highlight: true,
+  },
+  {
+    tag: 'Advanced',
+    name: 'ICSI Treatment',
+    price: '₹1,30,000',
+    priceNote: 'Starting from',
+    description: 'Intracytoplasmic Sperm Injection — for severe male infertility.',
+    features: [
+      'Advanced Sperm Selection',
+      'Direct Sperm Injection',
+      'High Fertilization Rate',
+      'Includes All IVF Steps',
+    ],
+    accentColor: 'from-[#ED2793] to-[#9333ea]',
+    badgeBg: 'bg-pink-50 text-pink-700 dark:bg-pink-900/30 dark:text-pink-300',
+    highlight: false,
+  },
+];
+
+const emiPerks = [
+  { icon: <BadgePercent className="w-5 h-5" />, label: '0% Interest EMI' },
+  { icon: <Clock className="w-5 h-5" />, label: 'Instant Approval' },
+  { icon: <ShieldCheck className="w-5 h-5" />, label: 'Minimal Documentation' },
+  { icon: <IndianRupee className="w-5 h-5" />, label: 'Flexible Tenure' },
+];
+
+export default function PricingSection() {
+  return (
+    <section
+      id="pricing"
+      className="relative py-20 md:py-28 bg-[#f4f8fd] dark:bg-gray-900 overflow-hidden transition-colors"
+    >
+      {/* Background blobs */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#dbeafe] dark:bg-blue-900/20 rounded-full blur-3xl opacity-40 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#fce7f3] dark:bg-pink-900/20 rounded-full blur-3xl opacity-40 -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
+
+        {/* Header */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-[#145390] dark:text-blue-300 text-xs font-semibold px-4 py-2 rounded-full shadow-sm border border-[#145390]/10 dark:border-blue-800 mb-5">
+            <Sparkles className="w-3.5 h-3.5 text-[#ED2793]" />
+            Affordable & Transparent Pricing
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-50 leading-tight mb-4">
+            Know the Cost Before{' '}
+            <span className="text-[#145390] dark:text-blue-300">You Begin</span>
+          </h2>
+          <p className="text-gray-500 dark:text-gray-400 text-base max-w-2xl mx-auto">
+            No hidden charges. No surprises. Varanasi's most trusted fertility clinic with fully transparent pricing — so you can plan your journey with confidence.
+          </p>
+        </div>
+
+        {/* Pricing Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+          {pricingData.map((plan, i) => (
+            <div
+              key={i}
+              className={`relative rounded-3xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${plan.highlight
+                ? 'shadow-2xl shadow-[#145390]/20 dark:shadow-[#ED2793]/10 scale-[1.03] md:scale-[1.05]'
+                : 'shadow-md dark:shadow-black/30 bg-white dark:bg-gray-800'
+                }`}
+            >
+              {/* Gradient top bar / full card for highlight */}
+              {plan.highlight ? (
+                <div className={`bg-gradient-to-br ${plan.accentColor} p-[2px] rounded-3xl h-full`}>
+                  <div className="bg-[#0d2d52] dark:bg-[#0a1f38] rounded-3xl h-full flex flex-col">
+                    {/* Card inner — highlighted */}
+                    <div className="p-7 flex-grow flex flex-col">
+                      {/* Badge */}
+                      <span className={`self-start text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5 ${plan.badgeBg}`}>
+                        {plan.tag}
+                      </span>
+
+                      {/* Gradient accent line */}
+                      <div className={`h-1 w-12 rounded-full bg-gradient-to-r ${plan.accentColor} mb-5`} />
+
+                      <h3 className="text-xl font-bold text-white mb-1">{plan.name}</h3>
+                      <p className="text-white/60 text-sm leading-relaxed mb-6">{plan.description}</p>
+
+                      {/* Price */}
+                      <div className="mb-7">
+                        <p className="text-white/50 text-xs mb-1">{plan.priceNote}</p>
+                        <p className="text-4xl font-extrabold text-white tracking-tight">{plan.price}</p>
+                      </div>
+
+                      {/* Features */}
+                      <ul className="space-y-3 flex-grow">
+                        {plan.features.map((f, j) => (
+                          <li key={j} className="flex items-center gap-3">
+                            <span className="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                              <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                                <path d="M2 6l3 3 5-5" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </span>
+                            <span className="text-white/80 text-sm">{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* CTA */}
+                    <div className="px-7 pb-7">
+                      <a
+                        href="#contact"
+                        className={`w-full block text-center py-3.5 px-6 rounded-xl font-bold text-sm bg-gradient-to-r ${plan.accentColor} text-white hover:opacity-90 transition-opacity shadow-lg`}
+                      >
+                        Book Free Consultation
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                // Non-highlighted card
+                <div className="bg-white dark:bg-gray-800 rounded-3xl flex flex-col h-full">
+                  {/* Gradient accent bar */}
+                  <div className={`h-1.5 w-full bg-gradient-to-r ${plan.accentColor} rounded-t-3xl`} />
+
+                  <div className="p-7 flex-grow flex flex-col">
+                    {/* Badge */}
+                    <span className={`self-start text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5 ${plan.badgeBg}`}>
+                      {plan.tag}
+                    </span>
+
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-50 mb-1">{plan.name}</h3>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6">{plan.description}</p>
+
+                    {/* Price */}
+                    <div className="mb-7">
+                      <p className="text-gray-400 dark:text-gray-500 text-xs mb-1">{plan.priceNote}</p>
+                      <p className="text-4xl font-extrabold text-[#145390] dark:text-blue-300 tracking-tight">{plan.price}</p>
+                    </div>
+
+                    {/* Features */}
+                    <ul className="space-y-3 flex-grow">
+                      {plan.features.map((f, j) => (
+                        <li key={j} className="flex items-center gap-3">
+                          <CheckCircle2 className="w-4.5 h-4.5 text-[#ED2793] shrink-0" />
+                          <span className="text-gray-700 dark:text-gray-300 text-sm">{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="px-7 pb-7">
+                    <a
+                      href="#contact"
+                      className="w-full block text-center py-3.5 px-6 rounded-xl font-bold text-sm bg-[#f0f6ff] dark:bg-[#145390]/20 text-[#145390] dark:text-blue-300 hover:bg-[#145390] hover:text-white dark:hover:bg-[#145390] dark:hover:text-white transition-all duration-200 border border-[#145390]/20 dark:border-[#145390]/30"
+                    >
+                      Book Consultation
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* EMI Banner */}
+        <div className="mt-12 rounded-2xl overflow-hidden shadow-sm">
+          <div className="bg-gradient-to-br from-[#145390] via-[#1a6abf] to-[#0e3d6e] p-8 relative overflow-hidden">
+            {/* Decorative */}
+            <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-white/5 pointer-events-none" />
+            <div className="absolute -bottom-10 -left-6 w-52 h-52 rounded-full bg-white/5 pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+              {/* Left text */}
+              <div className="flex-1 text-center md:text-left">
+                <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-200 mb-3">
+                  <IndianRupee className="w-3.5 h-3.5" />
+                  Easy Financing Options
+                </p>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  Flexible EMI Available
+                </h3>
+                <p className="text-blue-100 text-sm leading-relaxed max-w-md">
+                  Start your treatment today without financial stress. We offer 0% interest EMI plans so you can focus entirely on your dream of parenthood.
+                </p>
+              </div>
+
+              {/* Perks grid */}
+              <div className="grid grid-cols-2 gap-3">
+                {emiPerks.map((perk, i) => (
+                  <div key={i} className="flex items-center gap-2.5 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[160px]">
+                    <span className="text-[#ED2793]">{perk.icon}</span>
+                    <span className="text-white text-sm font-medium">{perk.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Disclaimer */}
+        <p className="text-center text-gray-400 dark:text-gray-500 text-xs mt-5">
+          * Prices are indicative and may vary based on individual treatment requirements. Final cost will be discussed during your consultation.
+        </p>
+
+      </div>
+    </section>
+  );
+}

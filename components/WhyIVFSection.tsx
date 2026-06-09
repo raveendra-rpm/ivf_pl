@@ -44,7 +44,7 @@ export default function WhyIVFSection() {
   ];
 
   const stats = [
-    { value: "10,000+", label: "Happy Families" },
+    { value: "15,000+", label: "Happy Families" },
     { value: "5+", label: "Years of Experience" },
     { value: "90%+", label: "IVF Success Rate" },
     { value: "5+", label: "Expert Specialists" },

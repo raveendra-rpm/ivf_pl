@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import ExitPopup from "@/components/ExitPopup";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col overflow-x-hidden" suppressHydrationWarning>
         {children}
+        <ExitPopup />
         <AppointmentSidebar />
         <div className="fixed bottom-2 right-4 z-[50] flex flex-col items-center gap-3 md:bottom-10 md:right-10 md:z-[99] md:gap-4">
           <WhatsAppButton />

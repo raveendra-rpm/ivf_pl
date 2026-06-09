@@ -23,8 +23,11 @@ const navLinks: NavLink[] = [
     href: '#',
     children: [
       { label: 'Overview', href: '/our-story' },
+      { label: 'Why Popular IVF?', href: '/why-popular-ivf' },
       { label: 'Our Team', href: '/our-team' },
-      { label: 'Why Us?', href: '/why-us' },
+      { label: 'Our Facility & Lab', href: '/facility-lab' },
+      { label: 'Awards & Recognition', href: '/our-team/awards' },
+      { label: 'Media Coverage', href: '/our-team/media-coverage' },
       { label: 'Careers', href: '/careers' },
     ],
   },
