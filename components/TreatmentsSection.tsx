@@ -4,12 +4,23 @@ import Link from 'next/link';
 export default function TreatmentsSection() {
   const treatments = [
     {
-      title: "Fertility Treatments",
+      title: "Diagnostics",
       icon: (
         <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FCE7F3" stroke="#EC4899" strokeWidth="1.5" />
-          <path d="M12 7c-1.66 0-3 1.34-3 3 0 1.2.7 2.24 1.72 2.73C10.28 13.2 10 13.82 10 14.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5c0-.68-.28-1.3-.72-1.77C15.3 12.24 16 11.2 16 10c0-1.66-1.34-3-3-3z" fill="#D01C70" opacity="0.85" />
-          <circle cx="12.5" cy="10" r="1" fill="#FFFFFF" />
+          <circle cx="10" cy="10" r="6" fill="#F5F3FF" stroke="#8B5CF6" strokeWidth="1.5" />
+          <path d="M14.5 14.5L20 20" stroke="#8B5CF6" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M6 10h2.5l1.5-3.5 1.5 7 1-3.5H14" stroke="#D8B4FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="18" cy="7" r="2.5" stroke="#F59E0B" strokeWidth="1.2" />
+        </svg>
+      )
+    },
+    {
+      title: "Gynaecological Procedures",
+      icon: (
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="#FCE7F3" stroke="#DB2777" strokeWidth="1.5" />
+          <path d="M9 10c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h1v4h4v-4h1c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H9z" fill="#FCE7F3" stroke="#DB2777" strokeWidth="1.5" />
+          <path d="M13.5 13.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5" stroke="#DB2777" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       )
     },
@@ -20,6 +31,16 @@ export default function TreatmentsSection() {
           <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#E0F2FE" stroke="#0284C7" strokeWidth="1.5" />
           <path d="M12 14c-2.33 0-4.5.83-5.5 2.5.83.67 2.67 1.5 5.5 1.5s4.67-.83 5.5-1.5c-1-1.67-3.17-2.5-5-2.5z" fill="#0284C7" opacity="0.8" />
           <circle cx="12" cy="8" r="2.5" fill="#0284C7" opacity="0.8" />
+        </svg>
+      )
+    },
+    {
+      title: "Fertility Treatments",
+      icon: (
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FCE7F3" stroke="#EC4899" strokeWidth="1.5" />
+          <path d="M12 7c-1.66 0-3 1.34-3 3 0 1.2.7 2.24 1.72 2.73C10.28 13.2 10 13.82 10 14.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5c0-.68-.28-1.3-.72-1.77C15.3 12.24 16 11.2 16 10c0-1.66-1.34-3-3-3z" fill="#D01C70" opacity="0.85" />
+          <circle cx="12.5" cy="10" r="1" fill="#FFFFFF" />
         </svg>
       )
     },
@@ -41,27 +62,6 @@ export default function TreatmentsSection() {
           <path d="M9 3h6v2H9V3zm1 2h4v11a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2V5z" fill="#E0F2FE" stroke="#0284C7" strokeWidth="1.5" />
           <path d="M11 9h2v6h-2V9z" fill="#0284C7" opacity="0.8" />
           <path d="M16 12h6M19 9v6M16.5 14.5l5-5M16.5 9.5l5 5" stroke="#38BDF8" strokeWidth="1.2" strokeLinecap="round" />
-        </svg>
-      )
-    },
-    {
-      title: "Gynaecological Procedures",
-      icon: (
-        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="#FCE7F3" stroke="#DB2777" strokeWidth="1.5" />
-          <path d="M9 10c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h1v4h4v-4h1c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H9z" fill="#FCE7F3" stroke="#DB2777" strokeWidth="1.5" />
-          <path d="M13.5 13.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5" stroke="#DB2777" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-      )
-    },
-    {
-      title: "Diagnostics",
-      icon: (
-        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="10" cy="10" r="6" fill="#F5F3FF" stroke="#8B5CF6" strokeWidth="1.5" />
-          <path d="M14.5 14.5L20 20" stroke="#8B5CF6" strokeWidth="2.5" strokeLinecap="round" />
-          <path d="M6 10h2.5l1.5-3.5 1.5 7 1-3.5H14" stroke="#D8B4FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="18" cy="7" r="2.5" stroke="#F59E0B" strokeWidth="1.2" />
         </svg>
       )
     }

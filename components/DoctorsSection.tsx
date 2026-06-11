@@ -13,15 +13,6 @@ export default function DoctorsSection() {
       image: "/dr_kiran_kaushik.avif"
     },
     {
-      name: "Dr. Srishti Tanya",
-      slug: "dr-srishti-tanya",
-      designation: "IVF & Infertility Medicine",
-      experience: "8 Years",
-      patients: "8+",
-      reviews: "95+",
-      image: "/dr._srishti_tanya.avif"
-    },
-    {
       name: "Dr. Priyanka Jaiswal",
       slug: "dr-priyanka-jaiswal",
       designation: "IVF & Infertility Medicine",
@@ -29,6 +20,15 @@ export default function DoctorsSection() {
       patients: "12+",
       reviews: "150+",
       image: "/dr_priyanka_jaiswal.avif"
+    },
+    {
+      name: "Dr. Srishti Tanya",
+      slug: "dr-srishti-tanya",
+      designation: "IVF & Infertility Medicine",
+      experience: "8 Years",
+      patients: "8+",
+      reviews: "95+",
+      image: "/dr._srishti_tanya.avif"
     },
     {
       name: "Dr. Akanksha Chaturvedi",

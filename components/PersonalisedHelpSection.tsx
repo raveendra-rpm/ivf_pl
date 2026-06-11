@@ -24,6 +24,10 @@ const options = [
     icon: <HeartPulse className="w-5 h-5" />,
     label: "I am suffering from irregular menses/no menses",
   },
+  {
+    icon: <HeartPulse className="w-5 h-5" />,
+    label: "PCOS / Endometrics / Tubal Blockage / Low AMH",
+  },
 ];
 
 export default function PersonalisedHelpSection() {

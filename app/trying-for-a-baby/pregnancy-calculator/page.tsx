@@ -1,8 +1,42 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export default function PregnancyCalculatorPage() {
+  const [calcMethod, setCalcMethod] = useState('LMP');
+  const [baseDate, setBaseDate] = useState('');
+  const [result, setResult] = useState<{ expectedDueDate: string; } | null>(null);
+
+  const calculateDueDate = () => {
+    if (!baseDate) return;
+    
+    const date = new Date(baseDate);
+    const expected = new Date(date);
+
+    if (calcMethod === 'LMP') {
+      // LMP: add 280 days
+      expected.setDate(expected.getDate() + 280);
+    } else if (calcMethod === 'Conception') {
+      // Conception: add 266 days
+      expected.setDate(expected.getDate() + 266);
+    } else if (calcMethod === 'IVF3') {
+      // IVF Day 3: add 266 days
+      expected.setDate(expected.getDate() + 266);
+    } else if (calcMethod === 'IVF5') {
+      // IVF Day 5: add 261 days
+      expected.setDate(expected.getDate() + 261);
+    }
+
+    const formatDate = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+    setResult({
+      expectedDueDate: formatDate(expected),
+    });
+  };
+
   return (
     <div className="flex min-h-screen flex-col font-sans">
       <Navbar alwaysDark={true} />
@@ -11,8 +45,6 @@ export default function PregnancyCalculatorPage() {
         {/* ── HERO ── */}
         <div className="bg-gradient-to-r from-primary-blue via-[#ED2793] to-[#ff7eb3] py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
-          <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-white/5 pointer-events-none" />
-          <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-white/5 pointer-events-none" />
           <div className="container mx-auto px-4 relative z-10 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-md">
               Pregnancy Calculator
@@ -27,69 +59,138 @@ export default function PregnancyCalculatorPage() {
           </div>
         </div>
 
-        {/* ── INTRO SECTION (PREMIUM LAYOUT) ── */}
-        <section className="bg-white py-16 md:py-20">
-          <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+        {/* ── SECTION: PREGNANCY TERM & CALCULATOR ── */}
+        <section className="bg-[#f8fbff] py-16 md:py-24 relative overflow-hidden">
+          {/* Background decorations */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-pink-100/40 blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-blue-100/40 blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
 
-              {/* Left: Text */}
-              <div className="lg:w-1/2">
-                <span className="inline-block bg-pink-50 text-primary-pink text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
-                  Trying for a Baby?
-                </span>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-primary-blue leading-tight mb-6">
-                  Understanding <span className="text-primary-pink">Pregnancy Calculator</span>
-                </h2>
-                
-                <div className="bg-white border border-gray-100 shadow-none rounded-2xl p-6 md:p-8 relative overflow-hidden group hover:border-primary-pink/30 transition-colors">
-                  <div className="absolute top-0 left-0 w-1.5 h-full bg-primary-pink"></div>
-                  <div className="space-y-4 text-gray-700 text-[15px] md:text-[17px] leading-relaxed relative z-10">
-                    <p>
-                      Pregnancy calculator guidance helps estimate important pregnancy dates based on the last menstrual period or conception details.
-                    </p>
-                    <p>
-                      It is a helpful planning tool, but medical confirmation through consultation and ultrasound is always recommended.
-                    </p>
-                  </div>
-                  <div className="absolute right-0 bottom-0 opacity-5 text-8xl pointer-events-none -mb-6 -mr-4 text-primary-blue font-serif group-hover:text-primary-pink transition-colors">"</div>
+          <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
+
+            {/* Section header */}
+            <div className="text-center mb-12 md:mb-16">
+              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white shadow-sm border border-pink-100 text-primary-pink font-bold text-sm tracking-wide uppercase mb-5">
+                <span className="w-2 h-2 rounded-full bg-primary-pink animate-pulse"></span>
+                Your Pregnancy Journey
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#145390]">
+                Pregnancy Term & <span className="text-primary-pink">Calculator</span>
+              </h2>
+            </div>
+
+            {/* Stats row */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+              {[
+                { num: "40", unit: "Weeks", label: "Full Pregnancy Term" },
+                { num: "3", unit: "Trimesters", label: "Stages of Pregnancy" },
+                { num: "280", unit: "Days", label: "From LMP to Delivery" },
+                { num: "38", unit: "Weeks", label: "From Conception" },
+              ].map((stat, i) => (
+                <div key={i} className="bg-white rounded-2xl p-5 text-center shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                  <p className="text-2xl md:text-3xl font-extrabold text-[#145390]">{stat.num}</p>
+                  <p className="text-primary-pink font-semibold text-sm">{stat.unit}</p>
+                  <p className="text-gray-500 text-xs mt-1 font-medium">{stat.label}</p>
                 </div>
-                
-                {/* Assurance Note */}
-                <div className="mt-8 flex items-center gap-4 bg-blue-50 px-5 py-4 rounded-xl border border-blue-100">
-                  <div className="flex-shrink-0 w-10 h-10 bg-primary-blue/10 text-primary-blue rounded-full flex items-center justify-center text-xl">
-                    📆
-                  </div>
-                  <p className="text-sm font-semibold text-gray-700">
-                    A helpful guide to estimate dates and plan for early checkups.
-                  </p>
+              ))}
+            </div>
+
+            {/* Two content cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100 hover:shadow-lg hover:border-primary-pink/20 transition-all duration-300 group relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#ED2793] to-[#145390] rounded-l-3xl"></div>
+                <div className="w-12 h-12 rounded-2xl bg-pink-50 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ED2793" strokeWidth="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
                 </div>
+                <h3 className="text-lg font-bold text-[#145390] mb-4">What is a Due Date Calculator?</h3>
+                <p className="text-gray-600 text-[15px] leading-relaxed">
+                  A pregnancy calculator, also known as a due date calculator, helps expecting parents estimate around when they will deliver. It is designed to track the days into the stage of pregnancy and other important milestones, like hearing the heartbeat or viewing the baby's first ultrasound. Healthing uses a 280 day/40 weeks length model as pregnancy timeline. This uses pregnancy length as its yardstick using the initial state of the first cycle before delivery. Childbirth is usually estimated 40 weeks of conception or 38 weeks from the onset of the last menstrual period. During the initial visit to an OB-GYN, the doctor usually gives them an estimated date of when the child will be born, typically based on a sonogram. This is referred to as the due date. The due date is normally estimated in a separate initial menstrual period.
+                </p>
               </div>
 
-              {/* Right: Single Image with Floating Badges */}
-              <div className="lg:w-1/2 w-full">
-                <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-sm group">
-                  <img
-                    src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=900&q=80"
-                    alt="Pregnancy Estimation"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-blue/10 to-transparent pointer-events-none"></div>
-                  
-                  {/* Floating Badge - Top Right */}
-                  <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-3 shadow-lg border border-white/20">
-                    <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide">Estimation</p>
-                    <p className="text-primary-blue font-extrabold text-[15px]">Delivery Date</p>
-                  </div>
+              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100 hover:shadow-lg hover:border-[#145390]/20 transition-all duration-300 group relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#145390] to-[#ED2793] rounded-l-3xl"></div>
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#145390" strokeWidth="2">
+                    <path d="M3 12h4l3 8 4-16 3 8h4"/>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-[#145390] mb-4">Tracking Week by Week Progress</h3>
+                <p className="text-gray-600 text-[15px] leading-relaxed">
+                  A pregnancy calculator week by week helps account for all that progress. The milestones are essential to understanding and following up with the baby's developmental stages and impacts highly the health of each pregnancy trimester. Other milestones like the pregnancy month calculator, measure time in months, which may be more feasible for some parents.
+                </p>
+              </div>
+            </div>
 
-                  {/* Floating Badge - Bottom Left */}
-                  <div className="absolute bottom-6 left-6 bg-gradient-to-r from-[#ED2793] to-[#d61b7f] text-white rounded-2xl px-6 py-4 shadow-xl border border-white/20">
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">👩‍⚕️</span>
-                      <div>
-                        <p className="text-xs font-medium opacity-90 uppercase tracking-widest">Support</p>
-                        <p className="font-extrabold text-lg">Doctor Confirmation</p>
-                      </div>
+          </div>
+        </section>
+
+        {/* ── SECTION: CALCULATOR & MYTH/FACT ── */}
+        <section className="bg-pink-50/50 py-16 md:py-20">
+          <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+            <h2 className="text-3xl font-extrabold text-[#145390] mb-10">Calculate Now!</h2>
+            
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+              
+              {/* Form */}
+              <div className="lg:w-1/3 w-full bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100">
+                <div className="space-y-6">
+                  <div>
+                    <label className="block text-primary-pink font-bold mb-2 text-sm uppercase tracking-wide">Calculate By</label>
+                    <select 
+                      value={calcMethod}
+                      onChange={(e) => setCalcMethod(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-pink focus:outline-none transition-colors text-gray-700 bg-white"
+                    >
+                      <option value="LMP">First Day of Last Period</option>
+                      <option value="Conception">Known Conception Date</option>
+                      <option value="IVF3">IVF Day 3 Transfer</option>
+                      <option value="IVF5">IVF Day 5 Transfer</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-primary-pink font-bold mb-2 text-sm uppercase tracking-wide">Your Date</label>
+                    <input 
+                      type="date" 
+                      value={baseDate}
+                      onChange={(e) => setBaseDate(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-pink focus:outline-none transition-colors text-gray-700 bg-white"
+                    />
+                  </div>
+                  <button 
+                    onClick={calculateDueDate}
+                    className="w-full bg-[#145390] hover:bg-[#0e3d6e] text-white font-bold py-4 rounded-xl transition-all hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    Calculate My Expected Due Date
+                  </button>
+                </div>
+                
+                {result && (
+                  <div className="mt-6 p-5 bg-blue-50 rounded-xl border border-blue-100 text-center animate-in fade-in slide-in-from-bottom-2">
+                    <p className="text-gray-600 text-sm mb-1 font-medium">Your Expected Due Date</p>
+                    <p className="text-xl font-bold text-[#145390]">{result.expectedDueDate}</p>
+                  </div>
+                )}
+              </div>
+
+              {/* Myth vs Fact */}
+              <div className="lg:w-2/3 w-full">
+                <div className="bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-col sm:flex-row items-center sm:items-start gap-8 lg:mt-6">
+                  <div className="flex-shrink-0 w-32 h-32 relative flex items-center justify-center">
+                    <div className="absolute inset-0 bg-pink-50 rounded-full scale-110"></div>
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#ED2793" strokeWidth="1.5" className="relative z-10">
+                      <path d="M9 18h6M10 22h4M12 2v2M4.22 4.22l1.42 1.42M2 12h2M19.78 4.22l-1.42 1.42M22 12h-2M15 18v-2a4 4 0 1 0-6 0v2h6z"/>
+                    </svg>
+                    <div className="absolute bottom-1 bg-white px-3 py-1 rounded-full text-[10px] font-black text-[#145390] shadow-sm uppercase tracking-wider z-20 border border-gray-100 text-center leading-tight">
+                      Myth<br/>vs<br/>Fact
                     </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-[#ED2793] mb-3 leading-snug">
+                      <span className="font-extrabold">Myth:</span> Pregnancy calculators can determine the exact date of conception.
+                    </h3>
+                    <p className="text-gray-700 text-lg leading-relaxed"><span className="font-bold text-[#145390]">Fact:</span> They estimate conception based on your menstrual cycle, but sperm can live up to five days so conception could vary by a few days.</p>
                   </div>
                 </div>
               </div>
@@ -98,126 +199,173 @@ export default function PregnancyCalculatorPage() {
           </div>
         </section>
 
-        {/* ── KEY POINTS SECTION (IMAGE CARDS) ── */}
-        <section className="py-16 md:py-24 bg-[#f8fbff] relative overflow-hidden">
-          <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
-            <div className="text-center mb-12 md:mb-16">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#145390]">
-                Key Points
-              </h2>
-              <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-                Understanding how pregnancy calculators assist in your journey.
+        {/* ── SECTION: TEXT CONTENT ── */}
+        <section className="bg-white py-16 md:py-24">
+          <div className="container mx-auto px-4 md:px-8 max-w-4xl space-y-16">
+            
+            <div>
+              <h2 className="text-3xl font-extrabold text-[#145390] mb-6">Pregnancy Due Date Calculator: Track Your Journey Week by Week</h2>
+              <div className="text-gray-700 text-lg leading-relaxed space-y-4">
+                <p>Pregnancy is a significant and extensive 40-week (ten months) beautiful yet physically taxing journey. Tracking your pregnancy fully week by week, knowing what to expect, when your baby may arrive, not just out of curiosity, is an integral part of prenatal care, important for you and your health and preparing for the big post-delivery day.</p>
+                <p>This free online pregnancy due date calculator tool will help you to easily plan ahead, safely ensure a timely delivery of the baby on the next trimester safely into this healthy, protected and nurtured network.</p>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-extrabold text-[#145390] mb-6">What Is a Pregnancy Due Date Calculator?</h2>
+              <p className="text-gray-700 mb-6 text-lg">A pregnancy due date calculator is a medical prediction tool that estimates your baby's Estimated Due Date (EDD), the day you are most likely to give birth. This calculator is typically 40 weeks counted down from:</p>
+              <ul className="space-y-4 text-gray-700 text-lg mb-6">
+                {[
+                  "The first day of your last menstrual period (LMP); or",
+                  "The calculated/ known date of conception."
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(237,39,147,0.5)]"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                While it is normal to give birth in a window preceding or following this date, it still provides a useful reference point for tracking your baby's development and scheduling your prenatal check-ups safely.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-              {[
-                {
-                  num: "01",
-                  title: "Date Estimation",
-                  desc: "Helps estimate expected delivery date and pregnancy weeks.",
-                  img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80"
-                },
-                {
-                  num: "02",
-                  title: "Planning Support",
-                  desc: "Useful for appointment planning, early checkups, and basic awareness.",
-                  img: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=600&q=80"
-                },
-                {
-                  num: "03",
-                  title: "Doctor Confirmation",
-                  desc: "Ultrasound and clinical evaluation provide the most reliable pregnancy dating.",
-                  img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
-                }
-              ].map((item, idx) => (
-                <div key={idx} className="relative group rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 aspect-[4/5] sm:aspect-[3/4] md:aspect-[4/5]">
-                  {/* Background Image */}
-                  <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  
-                  {/* Gradient Overlay for Text Readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#145390] via-[#145390]/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  {/* Content on top */}
-                  <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
-                    <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-white font-black text-2xl mb-6 border border-white/30 group-hover:-translate-y-2 transition-transform duration-500">
-                      {item.num}
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:-translate-y-1 transition-transform duration-500 delay-75">{item.title}</h3>
-                    <p className="text-blue-50 leading-relaxed font-medium group-hover:-translate-y-1 transition-transform duration-500 delay-100">
-                      {item.desc}
-                    </p>
-                  </div>
+            <div>
+              <h2 className="text-3xl font-extrabold text-[#145390] mb-6">What Are the Key Stages of Pregnancy (Week by Week)?</h2>
+              <p className="text-gray-700 mb-8 text-lg">As mentioned earlier, a pregnancy is 40 weeks long, averagely approx. 9 months. This entire timeline is further divided into 3 trimesters based on the baby's development stages. Understanding these 3 trimesters gives a better clarity to the expecting family, including the due date. So, let's understand how these trimesters are generally divided:</p>
+              
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-xl font-bold text-primary-pink mb-4">First Trimester (Weeks 1-13): The Foundation of Life</h3>
+                  <ul className="space-y-4 text-gray-700 text-lg">
+                    <li className="flex items-start gap-4">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0"></span>
+                      <span><span className="font-bold">Weeks 1-4:</span> Fertilization and implantation happen during this time. The embryo develops, and by week 4, the placenta begins to develop.</span>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0"></span>
+                      <span><span className="font-bold">Weeks 5-8:</span> The baby's heart begins to beat at this age, and tiny facial features begin to emerge. You might start to experience early pregnancy symptoms such as nausea and fatigue.</span>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0"></span>
+                      <span><span className="font-bold">Weeks 9-13:</span> The baby's major organs, muscles, and nerves develop. At the end of this stage of pregnancy, your little one is officially called a foetus.</span>
+                    </li>
+                  </ul>
                 </div>
-              ))}
-            </div>
 
-          </div>
-        </section>
+                <div>
+                  <h3 className="text-xl font-bold text-primary-pink mb-4">Second Trimester (Weeks 14-27): Growth and Movement</h3>
+                  <ul className="space-y-4 text-gray-700 text-lg">
+                    <li className="flex items-start gap-4">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0"></span>
+                      <span><span className="font-bold">Weeks 14-18:</span> You might start to feel the baby's movements today, and you may also notice a little baby bump.</span>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0"></span>
+                      <span><span className="font-bold">Weeks 19-22:</span> The movements get noticeable and you can have an ultrasound check to determine the baby's sex (however, in India sex revelation is illegal/punishable/a crime).</span>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0"></span>
+                      <span><span className="font-bold">Weeks 23-27:</span> The baby's senses are developing, and it can start responding to sounds and light. As your baby grows, you will feel stronger kicks.</span>
+                    </li>
+                  </ul>
+                </div>
 
-        {/* ── YOU MAY NEED (ICON CARDS) ── */}
-        <section className="py-20 md:py-28 bg-[#f8fbff] relative">
-          <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white shadow-sm border border-gray-100 text-primary-pink font-bold text-sm tracking-wide uppercase mb-4">
-                <span className="w-2 h-2 rounded-full bg-primary-blue animate-pulse"></span>
-                Preparation
+                <div>
+                  <h3 className="text-xl font-bold text-primary-pink mb-4">Third Trimester (Weeks 28-40): Final Preparations for Birth</h3>
+                  <ul className="space-y-4 text-gray-700 text-lg">
+                    <li className="flex items-start gap-4">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0"></span>
+                      <span><span className="font-bold">Weeks 28-32:</span> Your baby is putting on fat and settling head-down into the pelvis. You may experience Braxton Hicks contractions at this point.</span>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0"></span>
+                      <span><span className="font-bold">Weeks 33-36:</span> Your baby will be head-down in preparation for delivery. You may feel the baby kick more notably.</span>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0"></span>
+                      <span><span className="font-bold">Weeks 37-40:</span> You are full-term. Your baby can arrive at any time, and labour can begin any day. So sure to keep your hospital bag packed.</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#145390]">
-                You May Need
-              </h2>
             </div>
-            
-            <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
-              {[
-                { text: "Last menstrual period date", icon: "🗓️" },
-                { text: "Cycle length", icon: "📏" },
-                { text: "Conception or ovulation date if known", icon: "❤️" },
-                { text: "Early pregnancy consultation", icon: "👩‍⚕️" },
-                { text: "Ultrasound confirmation", icon: "🖥️" }
-              ].map((item, idx) => (
-                <div 
-                  key={idx} 
-                  className="group flex flex-col items-center text-center bg-white rounded-[2rem] p-8 md:p-10 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] border border-gray-100 shadow-sm hover:shadow-2xl hover:border-primary-pink/30 hover:-translate-y-2 transition-all duration-500 relative overflow-hidden"
-                >
-                  <div className="absolute top-0 w-full h-1.5 bg-gradient-to-r from-[#ED2793] to-[#145390] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-50 to-pink-50 flex items-center justify-center text-4xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-inner">
-                    {item.icon}
-                  </div>
-                  <span className="text-gray-800 font-extrabold text-[16px] md:text-[18px] leading-snug group-hover:text-[#145390] transition-colors duration-300">
-                    {item.text}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* ── CTA SECTION ── */}
-        <section className="py-16 md:py-20 bg-gradient-to-r from-primary-blue via-[#1a6abf] to-[#0e3d6e] relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#ED2793]/10 translate-y-1/2 -translate-x-1/4 pointer-events-none" />
-          <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-              Get the Right Answers for Your Journey
-            </h2>
-            <p className="text-blue-100 text-[15px] md:text-base mb-8 max-w-xl mx-auto">
-              While calculators provide helpful estimates, seeing a specialist ensures you and your baby get the right care from the start.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/book-appointment"
-                className="bg-[#ED2793] hover:bg-[#d61b7f] text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-[15px]"
-              >
-                Book a Free Consultation
-              </Link>
-              <Link
-                href="/contact"
-                className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-8 py-4 rounded-full transition-all text-[15px] backdrop-blur-sm"
-              >
-                Contact Us
-              </Link>
+            <div>
+              <h2 className="text-3xl font-extrabold text-[#145390] mb-6">Methods to Estimate Your Pregnancy Due Date:</h2>
+              <p className="text-gray-700 mb-6 text-lg">While estimating your due date, doctors and specialists turn to the correct and reliable methods, based on what information is available. Some of the most working approaches to the estimation include:</p>
+              <ul className="space-y-6 text-gray-700 text-lg">
+                <li className="flex items-start gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(237,39,147,0.5)]"></span>
+                  <span><span className="font-bold">Last Menstrual Period (LMP):</span> This is the most common method used. In this method, you add 280 days (40 weeks) to the first day of your last period. It works effectively for women with a regular 28-day cycle. Although not scientifically mostly accurate.</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(237,39,147,0.5)]"></span>
+                  <span><span className="font-bold">Conception Date/IVF Transfer Date:</span> This calculation date is preferred for individuals tracking ovulation or undergoing fertility treatment. The estimated due date is calculated based on the known or exact conception (or transfer). It will easily be more accurate the more you know about the ovulation date.</span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(237,39,147,0.5)]"></span>
+                  <div className="space-y-2">
+                    <span><span className="font-bold">IVF Transfer Date:</span> The estimated due date can also be accurate when pregnancy results from IVF since we know exactly when conception occurred.</span>
+                    <ul className="pl-4 space-y-2">
+                      <li>- For a Day 3 transfer, add 266 days to the transfer date.</li>
+                      <li>- For a Day 5 transfer, add 261 days to the transfer date.</li>
+                    </ul>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(237,39,147,0.5)]"></span>
+                  <span><span className="font-bold">Ultrasound Scan:</span> In cases where you cannot state both LMP and conception dates, an ultrasound scan can be utilized to calculate the estimated due date. Early ultrasound scans (12 weeks or less) are most able to estimate gestational age and determine the due date. This method is beneficial for women with irregular cycles.</span>
+                </li>
+              </ul>
             </div>
+
+            <div>
+              <h2 className="text-3xl font-extrabold text-[#145390] mb-6">How Accurate Is the Due Date and Its Calculator?</h2>
+              <div className="text-gray-700 text-lg leading-relaxed space-y-4">
+                <p>Pregnancy due date calculators are tools only for a rough estimated time duration, not the actual date of delivery. Calculators rely on the concept that a woman has a standard 28-day menstrual cycle with ovulation on the 14th day. But, not every woman has this common cycle. Hence you can say that the accuracy of the result largely depends upon:</p>
+                <ul className="list-disc pl-8 space-y-2 mb-4">
+                  <li>Irregular Periods</li>
+                  <li>Late Ovulation</li>
+                  <li>Variations in length of the cycle</li>
+                </ul>
+                <p>All of these are critical factors that might have underlying and real influence. Therefore, the estimated date of delivery is always never absolute; in actuality 4% of women give delivery exactly on their estimated due date.</p>
+                <p>This is why a two-week buffer period, before and after the due date (or the date it set to), is generally estimated for delivery, which typically is in the 38th or 42nd week of pregnancy. Moreover, your healthcare provider may alter your estimated due date based on routine prenatal visits.</p>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-extrabold text-[#145390] mb-6">Why Use a Due Date Calculator?</h2>
+              <p className="text-gray-700 mb-6 text-lg">You might be somewhat conceiving a pregnancy or expecting a baby right on time? Then this calculator tool helps not only you, but they can provide valuable insights into:</p>
+              <ul className="space-y-4 text-gray-700 text-lg">
+                {[
+                  "How the baby is developing",
+                  "When to schedule specific important prenatal tests and scans",
+                  "And, most importantly, it lets you prepare mentally, physically, and emotionally for your big day"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-pink mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(237,39,147,0.5)]"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-extrabold text-[#145390] mb-6">What If the Due Date Passes?</h2>
+              <div className="text-gray-700 text-lg leading-relaxed space-y-4">
+                <p>Even if your pregnancy due date passes, don't worry. It is completely normal for the estimated due date to be wrong. As mentioned earlier, the due date is an estimating tool of the time, and it is quite common for the baby to arrive one to two weeks before or after that estimated date. If you have crossed 40 weeks, you and your healthcare provider should discuss options.</p>
+                <p>However, if the labour doesn't begin even after 41-42 weeks, your doctor may suggest that you undergo induced labour. Besides that, sometimes the baby needs just a little bit of time to formally given that it won't be that long until you hold it.</p>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-extrabold text-[#145390] mb-6">Conclusion</h2>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Finally, a pregnancy due date calculator can be a great tool for any parent-to-be and a helpful guide through the remarkable journey of pregnancy. You can use this tool to know your baby's growth, schedule visits with your care provider, and prepare emotionally and practically for birth. Although your baby may be born a day or two before or after the exact due date, figuring out your estimated due date means you understand the growing stage better. Trust the journey you are on, its nature, and try looking every day to closer anticipator your child's birth.
+              </p>
+            </div>
+
           </div>
         </section>
 

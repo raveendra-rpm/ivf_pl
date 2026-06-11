@@ -11,6 +11,7 @@ import GoogleReviewsSection from '@/components/GoogleReviewsSection';
 import DoctorsSection from '@/components/DoctorsSection';
 import FAQSection from '@/components/FAQSection';
 import FacilityTourSection from '@/components/FacilityTourSection';
+import CalculatorsSection from '@/components/CalculatorsSection';
 import AwardsSection from '@/components/AwardsSection';
 import BlogsSection from '@/components/BlogsSection';
 import ConsultationSection from '@/components/ConsultationSection';
@@ -34,6 +35,7 @@ export default function Home() {
 
         <FAQSection />
         <FacilityTourSection />
+        <CalculatorsSection />
         <AwardsSection />
         <BlogsSection />
         <ConsultationSection />

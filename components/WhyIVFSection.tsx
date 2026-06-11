@@ -6,8 +6,8 @@ export default function WhyIVFSection() {
       desc: "Our compassionate team ensures you feel comfortable and cared for at every step.",
       icon: (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
       ),
     },
@@ -17,7 +17,7 @@ export default function WhyIVFSection() {
       desc: "Evidence-based treatments backed by the latest advancements in reproductive medicine.",
       icon: (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
         </svg>
       ),
     },
@@ -27,7 +27,7 @@ export default function WhyIVFSection() {
       desc: "Cutting-edge labs and equipment for the highest success rates in IVF procedures.",
       icon: (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+          <circle cx="12" cy="12" r="3" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
         </svg>
       ),
     },
@@ -37,7 +37,7 @@ export default function WhyIVFSection() {
       desc: "No hidden charges — clear, honest pricing for all our fertility care packages.",
       icon: (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          <line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
         </svg>
       ),
     },
@@ -46,7 +46,7 @@ export default function WhyIVFSection() {
   const stats = [
     { value: "15,000+", label: "Happy Families" },
     { value: "5+", label: "Years of Experience" },
-    { value: "90%+", label: "IVF Success Rate" },
+    { value: "86%+", label: "IVF Success Rate" },
     { value: "5+", label: "Expert Specialists" },
   ];
 
@@ -90,7 +90,7 @@ export default function WhyIVFSection() {
               Book a Free Consultation
               <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center group-hover:translate-x-1 transition-transform">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#145390" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                  <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </span>
             </a>
@@ -100,7 +100,7 @@ export default function WhyIVFSection() {
           <div className="grid grid-cols-2 gap-4 md:gap-6 relative">
             {/* Decorative background glow for the grid */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-gradient-to-tr from-[#145390]/15 to-[#ED2793]/15 blur-[60px] -z-10 rounded-full" />
-            
+
             {stats.map((stat, i) => (
               <div
                 key={i}
@@ -108,7 +108,7 @@ export default function WhyIVFSection() {
               >
                 {/* Subtle gradient hover reveal */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#145390]/[0.03] to-[#ED2793]/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 {/* Accent line on top */}
                 <div className={`absolute top-0 left-0 w-full h-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${i % 2 === 0 ? 'bg-gradient-to-r from-[#145390] to-[#1a6ab8]' : 'bg-gradient-to-r from-[#ED2793] to-[#ff47a9]'}`} />
 
@@ -121,7 +121,7 @@ export default function WhyIVFSection() {
                     {stat.label}
                   </div>
                 </div>
-                
+
                 {/* Decorative background element on hover */}
                 <div className={`absolute -bottom-8 -right-8 w-28 h-28 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl ${i % 2 === 0 ? 'bg-[#145390]/10' : 'bg-[#ED2793]/10'}`} />
               </div>

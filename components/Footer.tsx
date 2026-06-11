@@ -73,13 +73,13 @@ export default function Footer() {
             </p>
 
             <div className="flex items-center gap-4">
-              <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] dark:bg-gray-800 flex items-center justify-center text-[#145390] dark:text-blue-300 hover:bg-[#ED2793] dark:hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
+              <a href="https://www.facebook.com/popularivf" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-[#f8fbff] dark:bg-gray-800 flex items-center justify-center text-[#145390] dark:text-blue-300 hover:bg-[#ED2793] dark:hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
                 <FacebookIcon className="h-5 w-5" />
               </a>
-              <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] dark:bg-gray-800 flex items-center justify-center text-[#145390] dark:text-blue-300 hover:bg-[#ED2793] dark:hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
+              <a href="https://x.com/popular_vns" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-[#f8fbff] dark:bg-gray-800 flex items-center justify-center text-[#145390] dark:text-blue-300 hover:bg-[#ED2793] dark:hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
                 <TwitterIcon className="h-5 w-5" />
               </a>
-              <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] dark:bg-gray-800 flex items-center justify-center text-[#145390] dark:text-blue-300 hover:bg-[#ED2793] dark:hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
+              <a href="https://www.instagram.com/popular_hospitals/" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-[#f8fbff] dark:bg-gray-800 flex items-center justify-center text-[#145390] dark:text-blue-300 hover:bg-[#ED2793] dark:hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
                 <InstagramIcon className="h-5 w-5" />
               </a>
               <a href="#" className="w-11 h-11 rounded-full bg-[#f8fbff] dark:bg-gray-800 flex items-center justify-center text-[#145390] dark:text-blue-300 hover:bg-[#ED2793] dark:hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-sm dark:shadow-none hover:shadow-[0_4px_12px_rgba(237,39,147,0.3)]">
