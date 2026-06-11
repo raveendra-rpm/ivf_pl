@@ -4,6 +4,13 @@ import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Play, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
+type Testimonial = {
+  id: number;
+  link?: string;
+  image: string;
+  localVideo?: string;
+};
+
 export default function TestimonialsSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [activeVideoId, setActiveVideoId] = useState<number | null>(null);
@@ -17,14 +24,20 @@ export default function TestimonialsSection() {
     return () => window.removeEventListener('keydown', handleEsc);
   }, []);
 
-  const testimonials = [
+  const testimonials: Testimonial[] = [
     { id: 1, link: "https://www.youtube.com/watch?v=ICIDc8_pZFU", image: "https://img.youtube.com/vi/ICIDc8_pZFU/hqdefault.jpg" },
-    { id: 2, link: "https://www.youtube.com/watch?v=oNkc4DAfTEI", image: "https://img.youtube.com/vi/oNkc4DAfTEI/hqdefault.jpg" },
+    {
+      id: 2,
+      localVideo: "/videos/patient_testimonial_video.mp4",
+      image: "/videos/patient_testimonial_video.mp4#t=0.5",
+    },
     { id: 3, link: "https://www.youtube.com/watch?v=PdLA7KCG-XI", image: "https://img.youtube.com/vi/PdLA7KCG-XI/hqdefault.jpg" },
     { id: 4, link: "https://www.youtube.com/watch?v=jbxUmHHYgdw", image: "https://img.youtube.com/vi/jbxUmHHYgdw/hqdefault.jpg" },
     { id: 5, link: "https://www.youtube.com/watch?v=X58_ircy2UU", image: "https://img.youtube.com/vi/X58_ircy2UU/hqdefault.jpg" },
     { id: 6, link: "https://www.youtube.com/watch?v=kSuGOIhAzgA", image: "https://img.youtube.com/vi/kSuGOIhAzgA/hqdefault.jpg" }
   ];
+
+  const activeItem = testimonials.find(t => t.id === activeVideoId);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -87,34 +100,43 @@ export default function TestimonialsSection() {
           ref={scrollContainerRef}
           className="flex gap-5 md:gap-8 overflow-x-auto snap-x snap-mandatory hide-scrollbar scroll-smooth pb-12 -mx-4 px-4 md:mx-0 md:px-0"
         >
-          {testimonials.map((item) => {
-            return (
-              <div 
-                key={item.id} 
-                onClick={() => setActiveVideoId(item.id)}
-                className="relative group rounded-[2rem] overflow-hidden aspect-video bg-gray-900 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgb(237,39,147,0.15)] border-[6px] border-white dark:border-gray-800 shrink-0 w-[300px] sm:w-[360px] md:w-[440px] snap-center block transform transition-all duration-500 cursor-pointer"
-              >
+          {testimonials.map((item) => (
+            <div 
+              key={item.id} 
+              onClick={() => setActiveVideoId(item.id)}
+              className="relative group rounded-[2rem] overflow-hidden aspect-video bg-gray-900 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgb(237,39,147,0.15)] border-[6px] border-white dark:border-gray-800 shrink-0 w-[300px] sm:w-[360px] md:w-[440px] snap-center block transform transition-all duration-500 cursor-pointer"
+            >
+              {item.localVideo ? (
+                /* Local video — use video element as thumbnail */
+                <video
+                  src={item.localVideo}
+                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                  muted
+                  playsInline
+                  preload="metadata"
+                />
+              ) : (
                 <img 
                   src={item.image} 
                   alt="Patient Success Story" 
                   className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:via-black/10 transition-colors duration-500"></div>
-                
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-red-600 rounded-2xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500 transform group-hover:scale-110"></div>
-                    <div className="w-[72px] h-[52px] transform group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl relative z-10">
-                      <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
-                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#FF0000"></path>
-                        <path d="M 45,24 27,14 27,34" fill="#fff"></path>
-                      </svg>
-                    </div>
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:via-black/10 transition-colors duration-500"></div>
+              
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-red-600 rounded-2xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500 transform group-hover:scale-110"></div>
+                  <div className="w-[72px] h-[52px] transform group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl relative z-10">
+                    <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
+                      <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#FF0000"></path>
+                      <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                    </svg>
                   </div>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
         
         <div className="flex justify-center gap-4 mt-2 md:hidden">
@@ -162,15 +184,27 @@ export default function TestimonialsSection() {
               <X className="w-6 h-6" />
             </button>
             
-            {/* Iframe */}
-            <iframe
-              className="w-full h-full"
-              src={`https://www.youtube.com/embed/${testimonials.find(t => t.id === activeVideoId)?.link.split('v=')[1]}?autoplay=1`}
-              title="Patient Success Story"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            {activeItem?.localVideo ? (
+              /* Native HTML5 player for local video */
+              <video
+                className="w-full h-full"
+                src={activeItem.localVideo}
+                controls
+                autoPlay
+                playsInline
+                title="Patient Testimonial"
+              />
+            ) : (
+              /* YouTube embed for remote videos */
+              <iframe
+                className="w-full h-full"
+                src={`https://www.youtube.com/embed/${activeItem?.link?.split('v=')[1]}?autoplay=1`}
+                title="Patient Success Story"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            )}
           </div>
         </div>
       )}

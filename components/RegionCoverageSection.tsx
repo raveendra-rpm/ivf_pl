@@ -39,10 +39,36 @@ export default function RegionCoverageSection() {
                 Poorvanchal Region Coverage
               </div>
 
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-                Trusted Across<br />
-                <span className="text-[#f9a8d4]">Eastern UP & Poorvanchal</span>
-              </h2>
+              {/* Redesigned Professional Heading */}
+              <div className="mb-8">
+                {/* Eyebrow line */}
+                <p className="text-blue-300 text-xs font-semibold uppercase tracking-[0.25em] mb-3 flex items-center gap-2">
+                  <span className="w-5 h-px bg-blue-300/60 inline-block" />
+                  Serving Thousands of Families
+                  <span className="w-5 h-px bg-blue-300/60 inline-block" />
+                </p>
+
+                {/* Main heading */}
+                <h2 className="text-3xl md:text-4xl lg:text-[2.85rem] font-bold text-white leading-[1.15] tracking-tight">
+                  Patients Travel From Across
+                  <br />
+                  {/* Highlighted region with gradient underline */}
+                  <span className="relative inline-block mt-1">
+                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[#f9a8d4] via-[#ED2793] to-[#f9a8d4]">
+                      Eastern UP &amp; Poorvanchal
+                    </span>
+                    {/* Decorative underline */}
+                    <span
+                      className="absolute left-0 -bottom-1 h-[3px] w-full rounded-full"
+                      style={{ background: 'linear-gradient(90deg, #ED2793 0%, #f9a8d4 50%, transparent 100%)' }}
+                    />
+                  </span>
+                  <br />
+                  <span className="text-white/80 text-2xl md:text-3xl lg:text-[2rem] font-medium tracking-normal">
+                    — To Seek World-Class IVF Care
+                  </span>
+                </h2>
+              </div>
 
               <p className="text-blue-100 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
                 Varanasi ke alawa, Prayagraj, Gorakhpur, Mirzapur, Jaunpur, Azamgarh, Ghazipur aur aas-paas ke sabhi districts se humre paas patients aate hain. World-class IVF care ab aapke qarib.
@@ -80,8 +106,8 @@ export default function RegionCoverageSection() {
                     <MapPin className="w-5 h-5 text-[#f9a8d4]" />
                   </div>
                   <div>
-                    <p className="text-white font-bold text-base">We Serve These Cities</p>
-                    <p className="text-blue-200 text-xs">Uttar Pradesh & surrounding region</p>
+                    <p className="text-white font-bold text-base">Patients Come From These Cities</p>
+                    <p className="text-blue-200 text-xs">Cities our patients travel from to reach us</p>
                   </div>
                 </div>
 
