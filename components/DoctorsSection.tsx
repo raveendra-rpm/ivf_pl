@@ -25,7 +25,7 @@ export default function DoctorsSection() {
       name: "Dr. Srishti Tanya",
       slug: "dr-srishti-tanya",
       designation: "IVF & Infertility Medicine",
-      experience: "8 Years",
+      experience: "12+ Years",
       patients: "8+",
       reviews: "95+",
       image: "/dr._srishti_tanya.avif"
@@ -34,7 +34,7 @@ export default function DoctorsSection() {
       name: "Dr. Akanksha Chaturvedi",
       slug: "dr-akanksha-chaturvedi",
       designation: "IVF & Infertility Medicine",
-      experience: "7+ Years",
+      experience: "4+ Years",
       patients: "15+",
       reviews: "210+",
       image: "/dr_akanksha_chaturvedi.avif"
@@ -43,7 +43,7 @@ export default function DoctorsSection() {
       name: "Dr. Madhavi Paramar",
       slug: "dr-madhavi-paramar",
       designation: "IVF & Infertility Medicine",
-      experience: "7+ Years",
+      experience: "9 Years",
       patients: "20+",
       reviews: "180+",
       image: "/dr_madhvi_parmar.avif"
