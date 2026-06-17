@@ -106,7 +106,7 @@ export default function FertilityTreatmentsPage() {
             {/* Stats */}
             <div className="flex flex-wrap gap-6">
               {[
-                { value: '90%+', label: 'Success Rate' },
+                { value: '86%+', label: 'Success Rate' },
                 { value: '10,000+', label: 'Happy Families' },
                 { value: '5+', label: 'Years Experience' },
               ].map((s) => (

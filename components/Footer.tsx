@@ -29,21 +29,21 @@ const YoutubeIcon = ({ className }: { className?: string }) => (
 
 export default function Footer() {
   const aboutLinks = [
-    { name: 'About Us', href: '#' },
-    { name: 'Why Us?', href: '#' },
+    { name: 'About Us', href: '/our-story' },
+    { name: 'Why Us?', href: '/why-popular-ivf' },
     { name: 'Popular Group', href: '#' },
-    { name: 'Career', href: '#' },
-    { name: 'News & Updates', href: '#' },
-    { name: 'Term & Condition', href: '#' },
+    { name: 'Career', href: '/careers' },
+    { name: 'News & Updates', href: '/blog' },
+    { name: 'Contact Us', href: '/contact' },
   ];
 
   const treatmentLinks = [
-    { name: 'Fertility Treatments', href: '#' },
-    { name: 'Male Infertility', href: '#' },
-    { name: 'Donor Services', href: '#' },
-    { name: 'Fertility Preservation', href: '#' },
-    { name: 'Gynaecological Procedures', href: '#' },
-    { name: 'Diagnostics', href: '#' },
+    { name: 'Fertility Treatments', href: '/services/fertility-treatments' },
+    { name: 'Male Infertility', href: '/services/male-infertility' },
+    { name: 'Donor Services', href: '/services/donor-services' },
+    { name: 'Fertility Preservation', href: '/services/fertility-preservation' },
+    { name: 'Gynaecological Procedures', href: '/services/gynaecological-procedures' },
+    { name: 'Diagnostics', href: '/services/diagnostics' },
   ];
 
   return (
@@ -182,6 +182,7 @@ export default function Footer() {
           <div className="flex items-center gap-8">
             <Link href="#" className="hover:text-[#ED2793] transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-[#ED2793] transition-colors">Terms & Conditions</Link>
+            <Link href="/sitemap.xml" className="hover:text-[#ED2793] transition-colors">Sitemap</Link>
           </div>
         </div>
       </div>

@@ -53,7 +53,7 @@ export default function IVFPage() {
                 {/* Quick stats */}
                 <div className="grid grid-cols-3 gap-4 mt-8">
                   {[
-                    { value: '80%+', label: 'Success Rate' },
+                    { value: '86%+', label: 'Success Rate' },
                     { value: '3 Weeks', label: 'Per Cycle' },
                     { value: '15,000+', label: 'Babies Born' },
                   ].map((stat) => (

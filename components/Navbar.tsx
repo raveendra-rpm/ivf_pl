@@ -110,7 +110,7 @@ const navLinks: NavLink[] = [
     label: 'Second Opinion',
     href: '#',
     children: [
-      { label: 'REPETED MISCARIAGES', href: '/second-opinion/repeated-miscarriages' },
+      { label: 'REPEATED MISCARRIAGES', href: '/second-opinion/repeated-miscarriages' },
       { label: 'REPEATED IVF FAILURE', href: '/second-opinion/repeated-ivf-failure' },
       { label: 'FERTILITY & CANCER', href: '/second-opinion/fertility-and-cancer' },
       { label: 'RECURRENT IMPLANTATION FAILURE', href: '/second-opinion/recurrent-implantation-failure' },

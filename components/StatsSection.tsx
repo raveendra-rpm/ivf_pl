@@ -1,6 +1,6 @@
 export default function StatsSection() {
   const stats = [
-    { value: "85%", label: "High Success Rate" },
+    { value: "86%+", label: "High Success Rate" },
     { value: "10,000+", label: "IVF Babies Delivered" },
     { value: "5+ Years", label: "of Excellence" },
     { value: "50+", label: "Fertility Experts" },

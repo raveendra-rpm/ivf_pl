@@ -27,7 +27,7 @@ export default function FAQSection() {
     },
     {
       question: "What is the success rate of IVF?",
-      answer: "Success rates strongly depend on the age of the patient, their condition, medical history and the treatment used. Popular Pratap IVF has 90% success ratio. However by leveraging advanced technology and standardising the procedures, we are constantly working towards improving the IVF success rates."
+      answer: "Success rates strongly depend on the age of the patient, their condition, medical history and the treatment used. Popular Pratap IVF has 86%+ success ratio. However by leveraging advanced technology and standardising the procedures, we are constantly working towards improving the IVF success rates."
     },
 
     {

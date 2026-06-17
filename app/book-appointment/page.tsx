@@ -56,7 +56,7 @@ export default function BookAppointmentPage() {
                 <h2 className="text-xl font-extrabold text-white mb-6 leading-snug">Trusted by thousands of families across India</h2>
                 <div className="space-y-4">
                   {[
-                    { icon: '✨', title: '90%+ Success Rate', desc: 'Among the highest in the region' },
+                    { icon: '✨', title: '86%+ Success Rate', desc: 'Among the highest in the region' },
                     { icon: '🧬', title: 'Advanced IVF Lab', desc: 'State-of-the-art embryology lab' },
                     { icon: '💰', title: 'Transparent Pricing', desc: 'No hidden charges, ever' },
                     { icon: '🤝', title: 'Personalized Care', desc: 'Tailored plans for every couple' },
