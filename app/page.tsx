@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import WhyIVFSection from '@/components/WhyIVFSection';
+import WhenToChooseIVFSection from '@/components/WhenToChooseIVFSection';
 import PersonalisedHelpSection from '@/components/PersonalisedHelpSection';
 import PricingSection from '@/components/PricingSection';
 import ProcessStepsSection from '@/components/ProcessStepsSection';
@@ -24,6 +25,7 @@ export default function Home() {
       <main className="flex-grow">
         <HeroSection />
         <WhyIVFSection />
+        <WhenToChooseIVFSection />
         <PersonalisedHelpSection />
         <PricingSection />
         <ProcessStepsSection />

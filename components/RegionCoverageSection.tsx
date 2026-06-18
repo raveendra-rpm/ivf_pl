@@ -71,7 +71,7 @@ export default function RegionCoverageSection() {
               </div>
 
               <p className="text-blue-100 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
-                Varanasi ke alawa, Prayagraj, Gorakhpur, Mirzapur, Jaunpur, Azamgarh, Ghazipur aur aas-paas ke sabhi districts se humre paas patients aate hain. World-class IVF care ab aapke qarib.
+                Beyond Varanasi, we proudly welcome patients from Prayagraj, Gorakhpur, Mirzapur, Jaunpur, Azamgarh, Ghazipur, and all surrounding districts. World-class IVF care is now closer to you than ever.
               </p>
 
               {/* CTA */}
@@ -132,11 +132,6 @@ export default function RegionCoverageSection() {
                           <p className={`font-semibold text-sm ${city.isHub ? 'text-white' : 'text-white/90'}`}>
                             {city.name}
                           </p>
-                          {city.isHub && (
-                            <p className="text-[#f9a8d4] text-[10px] font-bold uppercase tracking-widest">
-                              Main Center
-                            </p>
-                          )}
                         </div>
                       </div>
                     </div>

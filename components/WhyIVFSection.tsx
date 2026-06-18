@@ -1,3 +1,56 @@
+"use client";
+
+import { useState, useEffect, useRef } from 'react';
+
+function AnimatedCounter({ endValue, duration, suffix = "" }: { endValue: number, duration: number, suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef<HTMLSpanElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting && !hasAnimated) {
+        setHasAnimated(true);
+      }
+    }, { threshold: 0.1 });
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) observer.unobserve(elementRef.current);
+    };
+  }, [hasAnimated]);
+
+  useEffect(() => {
+    if (!hasAnimated) return;
+
+    let startTime: number | null = null;
+    const animate = (time: number) => {
+      if (!startTime) startTime = time;
+      const progress = Math.min((time - startTime) / duration, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(easeProgress * endValue));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [hasAnimated, endValue, duration]);
+
+  const formattedCount = count >= 1000 ? count.toLocaleString() : count;
+
+  return (
+    <span ref={elementRef}>
+      {formattedCount}{suffix}
+    </span>
+  );
+}
+
 export default function WhyIVFSection() {
   const features = [
     {
@@ -44,10 +97,10 @@ export default function WhyIVFSection() {
   ];
 
   const stats = [
-    { value: "15,000+", label: "Happy Families" },
-    { value: "5+", label: "Years of Experience" },
-    { value: "86%+", label: "IVF Success Rate" },
-    { value: "5+", label: "Expert Specialists" },
+    { value: 15000, suffix: "+", label: "Happy Families" },
+    { value: 5, suffix: "+", label: "Years of Experience" },
+    { value: 86, suffix: "%+", label: "IVF Success Rate" },
+    { value: 5, suffix: "+", label: "Expert Specialists" },
   ];
 
   return (
@@ -114,7 +167,7 @@ export default function WhyIVFSection() {
 
                 <div className="relative z-10 flex flex-col gap-1">
                   <div className={`text-4xl md:text-[42px] font-extrabold tracking-tight mb-1 group-hover:scale-[1.03] transition-transform duration-500 origin-left ${i % 2 === 0 ? 'text-[#145390] dark:text-[#93c5fd]' : 'text-[#ED2793] dark:text-[#f472b6]'}`}>
-                    {stat.value}
+                    <AnimatedCounter endValue={stat.value} duration={2000} suffix={stat.suffix} />
                   </div>
                   <div className="text-sm md:text-base font-semibold text-gray-600 dark:text-gray-300 flex items-center gap-2">
                     <span className={`w-1.5 h-1.5 rounded-full ${i % 2 === 0 ? 'bg-[#ED2793] dark:bg-pink-400 shadow-[0_0_8px_rgba(237,39,147,0.5)]' : 'bg-[#145390] dark:bg-blue-400 shadow-[0_0_8px_rgba(20,83,144,0.5)]'}`} />

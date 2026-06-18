@@ -110,10 +110,10 @@ const navLinks: NavLink[] = [
     label: 'Second Opinion',
     href: '#',
     children: [
-      { label: 'REPEATED MISCARRIAGES', href: '/second-opinion/repeated-miscarriages' },
-      { label: 'REPEATED IVF FAILURE', href: '/second-opinion/repeated-ivf-failure' },
-      { label: 'FERTILITY & CANCER', href: '/second-opinion/fertility-and-cancer' },
-      { label: 'RECURRENT IMPLANTATION FAILURE', href: '/second-opinion/recurrent-implantation-failure' },
+      { label: 'Repeated Miscarriages', href: '/second-opinion/repeated-miscarriages' },
+      { label: 'Repeated IVF Failure', href: '/second-opinion/repeated-ivf-failure' },
+      { label: 'Fertility & Cancer', href: '/second-opinion/fertility-and-cancer' },
+      { label: 'Recurrent Implantation Failure', href: '/second-opinion/recurrent-implantation-failure' },
     ],
   },
   {
@@ -216,9 +216,9 @@ export default function Navbar({ alwaysDark = false }: { alwaysDark?: boolean })
           {/* Logo */}
           <Link href="/" className="flex items-center group shrink-0">
             <img
-              src="/popular_ivf_logo.webp"
+              src="/popular_ivf_logo.png"
               alt="Popular IVF Logo"
-              className="h-12 w-auto max-w-[190px] rounded-xl object-contain md:h-14 md:max-w-[230px] xl:h-16 xl:max-w-[270px] 2xl:h-[68px] 2xl:max-w-[300px]"
+              className="h-12 w-auto max-w-[190px] bg-white p-2 rounded-xl object-contain md:h-14 md:max-w-[230px] xl:h-16 xl:max-w-[270px] 2xl:h-[68px] 2xl:max-w-[300px]"
             />
           </Link>
 
@@ -388,7 +388,7 @@ export default function Navbar({ alwaysDark = false }: { alwaysDark?: boolean })
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-primary-blue to-primary-blue/80">
-          <img src="/popular_ivf_logo.webp" alt="Popular IVF Logo" className="h-10 rounded-lg object-contain" />
+          <img src="/popular_ivf_logo.png" alt="Popular IVF Logo" className="h-10 bg-white p-1.5 rounded-lg object-contain" />
           <button
             onClick={() => setMobileOpen(false)}
             className="p-2 rounded-full bg-white/15 text-white hover:bg-white/25 transition-colors"

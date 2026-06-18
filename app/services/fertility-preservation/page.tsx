@@ -7,37 +7,37 @@ const treatments = [
     title: 'Egg Freezing (Oocyte Cryopreservation)',
     desc: 'Freezing unfertilized eggs to preserve a woman’s fertility for future use.',
     link: '/treatments/egg-freezing',
-    image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80',
+    image: '/images/donor_egg_img.jpg',
   },
   {
     title: 'Sperm Freezing',
     desc: 'Cryopreserving sperm for future use, often recommended before cancer treatments or for convenience during IVF.',
     link: '/treatments/sperm-freezing',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
+    image: '/images/donor_sperm_img.jpg',
   },
   {
     title: 'Embryo Freezing (Cryopreservation)',
     desc: 'Freezing excess embryos created during an IVF cycle for future transfers.',
     link: '/treatments/fet',
-    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80',
+    image: '/images/embryo_freezing.jpg',
   },
   {
     title: 'Ovarian Cortex Freezing',
     desc: 'Freezing ovarian tissue containing thousands of immature eggs; primarily for prepubertal girls facing cancer treatment.',
     link: '/treatments/ovarian-cortex-freezing',
-    image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80',
+    image: '/images/ovarian_tissue_freezing_fertility.jpg',
   },
   {
     title: 'Testicular Tissue Freezing',
     desc: 'Preserving testicular tissue containing sperm or sperm-producing cells.',
     link: '/treatments/testicular-tissue-freezing',
-    image: 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=800&q=80',
+    image: '/images/testicular_tissue_freezing_img.jpg',
   },
   {
     title: 'Cancer Fertility Preservation',
     desc: 'Specialized rapid preservation protocols for patients recently diagnosed with cancer.',
     link: '/treatments/cancer-fertility-preservation',
-    image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80',
+    image: '/images/cancer_fertility_preservation_img.jpg',
   },
 ];
 
@@ -89,7 +89,7 @@ export default function FertilityPreservationPage() {
             <div className="flex flex-wrap gap-6">
               {[
                 { value: '86%+', label: 'Success Rate' },
-                { value: '10,000+', label: 'Happy Families' },
+                { value: '15,000+', label: 'Happy Families' },
                 { value: '5+', label: 'Years Experience' },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col">

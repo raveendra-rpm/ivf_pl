@@ -18,7 +18,7 @@ export default function FacilityLabPage() {
         <section className="relative h-[280px] md:h-[360px] flex flex-col items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
             {/* Reusing about_overview.jpeg as a clean background for the lab */}
-            <img src="/images/about/about_overview.jpeg" alt="Facility & Lab" className="w-full h-full object-cover" />
+            <img src="/images/gallery/1.webp" alt="Facility & Lab" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#145390]/80 via-[#ED2793]/70 to-[#ff7eb3]/60"></div>
           </div>
           <div className="container mx-auto px-4 relative z-10 text-center mt-8">

@@ -7,37 +7,37 @@ const treatments = [
     title: 'Advanced Semen Analysis',
     desc: 'Detailed evaluation of sperm health, count, motility, and morphology.',
     link: '/treatments/advanced-semen-analysis',
-    image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80',
+    image: '/images/advanced_semen_analysis.jpg',
   },
   {
     title: 'TESA (Testicular Sperm Aspiration)',
     desc: 'Minimally invasive sperm retrieval directly from the testicles.',
     link: '/treatments/tesa',
-    image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80',
+    image: '/images/testicular_sperm_aspiration.jpg',
   },
   {
     title: 'PESA (Percutaneous Epididymal Sperm Aspiration)',
     desc: 'Retrieving sperm from the epididymis, often used for obstructive conditions.',
     link: '/treatments/pesa',
-    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80',
+    image: '/images/percutaneous_epididymal_sperm.jpg',
   },
   {
     title: 'Micro-TESE',
     desc: 'Advanced microsurgical technique to find sperm in cases of severe non-obstructive azoospermia.',
     link: '/treatments/micro-tese',
-    image: 'https://images.unsplash.com/photo-1579684453423-f84349ef60b0?auto=format&fit=crop&w=800&q=80',
+    image: '/images/micro-tese_img.jpg',
   },
   {
     title: 'Varicocele Repair',
     desc: 'Surgical treatment for enlarged veins in the scrotum that can affect sperm production.',
     link: '/treatments/varicocele-repair',
-    image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80',
+    image: '/images/varicocele_repair_img.jpg',
   },
   {
     title: 'Electroejaculation',
     desc: 'A method to procure sperm when natural ejaculation is not possible.',
     link: '/treatments/electroejaculation',
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80',
+    image: '/specialized_procedures/electroejaculation_new.jpg',
   },
 ];
 
@@ -59,7 +59,7 @@ export default function MaleInfertilityPage() {
         <div className="relative bg-[#060f24] overflow-hidden min-h-[420px] md:min-h-[500px] flex items-center">
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1551076805-e1869043e560?auto=format&fit=crop&w=1400&q=80"
+              src="/images/male_infertility_banner.jpg"
               alt="Male Infertility"
               className="w-full h-full object-cover opacity-20"
             />
@@ -89,7 +89,7 @@ export default function MaleInfertilityPage() {
             <div className="flex flex-wrap gap-6">
               {[
                 { value: '86%+', label: 'Success Rate' },
-                { value: '10,000+', label: 'Happy Families' },
+                { value: '15,000+', label: 'Happy Families' },
                 { value: '5+', label: 'Years Experience' },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col">

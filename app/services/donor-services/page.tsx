@@ -7,13 +7,13 @@ const treatments = [
     title: 'Donor Sperm',
     desc: 'High-quality, rigorously screened donor sperm from certified banks for couples facing severe male factor infertility or single women.',
     link: '/treatments/donor-sperm',
-    image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80',
+    image: '/images/donor_sperm_img.jpg',
   },
   {
     title: 'Donor Egg',
     desc: 'Using eggs from a young, healthy donor for women who cannot produce viable eggs due to age, premature ovarian failure, or other factors.',
     link: '/treatments/donor-egg',
-    image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80',
+    image: '/images/donor_egg_img.jpg',
   },
 ];
 
@@ -65,7 +65,7 @@ export default function DonorServicesPage() {
             <div className="flex flex-wrap gap-6">
               {[
                 { value: '86%+', label: 'Success Rate' },
-                { value: '10,000+', label: 'Happy Families' },
+                { value: '15,000+', label: 'Happy Families' },
                 { value: '5+', label: 'Years Experience' },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col">

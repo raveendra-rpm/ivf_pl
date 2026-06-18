@@ -8,7 +8,7 @@ const galleryItems = [
     title: 'Advanced Embryology Lab',
     desc: 'Class 100 Clean Room for maximum success rates.',
     icon: <Microscope className="w-5 h-5" />,
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop', // placeholder
+    image: '/images/gallery/1.webp',
     colSpan: 'md:col-span-2 md:row-span-2',
     height: 'h-[300px] md:h-[420px]',
   },
@@ -16,7 +16,7 @@ const galleryItems = [
     title: 'Modular Operation Theatre',
     desc: 'State-of-the-art surgical equipment.',
     icon: <Activity className="w-5 h-5" />,
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1200&auto=format&fit=crop', // placeholder
+    image: '/images/gallery/2.webp',
     colSpan: 'md:col-span-1 md:row-span-1',
     height: 'h-[200px]',
   },
@@ -24,7 +24,7 @@ const galleryItems = [
     title: 'Private Consultation Rooms',
     desc: 'Confidential & comfortable environment.',
     icon: <Stethoscope className="w-5 h-5" />,
-    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop', // placeholder
+    image: '/images/gallery/3.webp',
     colSpan: 'md:col-span-1 md:row-span-1',
     height: 'h-[200px]',
   },
@@ -32,7 +32,7 @@ const galleryItems = [
     title: 'Patient Recovery Ward',
     desc: 'Premium care and nursing.',
     icon: <Building className="w-5 h-5" />,
-    image: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop', // placeholder
+    image: '/images/gallery/4.webp',
     colSpan: 'md:col-span-2 md:row-span-1',
     height: 'h-[200px]',
   },

@@ -7,37 +7,37 @@ const treatments = [
     title: 'Infertility Assessment Panel',
     desc: 'Comprehensive initial testing for both partners to understand fertility status.',
     link: '/treatments/infertility-assessment-panel',
-    image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80',
+    image: '/diagnostic_services/timely_evaluation_img.jpg',
   },
   {
     title: 'Hormone Assay & Ovarian Reserve',
     desc: 'Blood tests to check hormone levels and the quantity/quality of remaining eggs.',
     link: '/treatments/hormone-assay-ovarian-reserve',
-    image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80',
+    image: '/diagnostic_services/ovarian_cortex_freezing_img.jpg',
   },
   {
     title: 'Ultrasound (3D & Doppler)',
     desc: 'Advanced imaging to examine the uterus, ovaries, and blood flow.',
     link: '/treatments/ultrasound-3d-doppler',
-    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80',
+    image: '/diagnostic_services/treatment_Intrauterine.jpg',
   },
   {
     title: 'Tubal Patency Tests (SSG)',
     desc: 'Evaluating whether the fallopian tubes are open and healthy.',
     link: '/treatments/tubal-patency-tests',
-    image: 'https://images.unsplash.com/photo-1579684453423-f84349ef60b0?auto=format&fit=crop&w=800&q=80',
+    image: '/diagnostic_services/fertility_&_cancer_img.jpg',
   },
   {
     title: 'Genetic Panel',
     desc: 'Testing to identify potential genetic disorders that could affect fertility or offspring.',
     link: '/treatments/genetic-panel',
-    image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80',
+    image: '/diagnostic_services/known_conditions_img.jpg',
   },
   {
     title: 'PGS/PGD Screening',
     desc: 'Preimplantation genetic screening/diagnosis of embryos before transfer during IVF.',
     link: '/treatments/pgs-screening',
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80',
+    image: '/diagnostic_services/embryo_freezing_img.jpg',
   },
 ];
 
@@ -89,7 +89,7 @@ export default function DiagnosticsPage() {
             <div className="flex flex-wrap gap-6">
               {[
                 { value: '86%+', label: 'Success Rate' },
-                { value: '10,000+', label: 'Happy Families' },
+                { value: '15,000+', label: 'Happy Families' },
                 { value: '5+', label: 'Years Experience' },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col">

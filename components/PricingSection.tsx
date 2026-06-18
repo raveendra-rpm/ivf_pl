@@ -114,11 +114,7 @@ export default function PricingSection() {
                       <h3 className="text-xl font-bold text-white mb-1">{plan.name}</h3>
                       <p className="text-white/60 text-sm leading-relaxed mb-6">{plan.description}</p>
 
-                      {/* Price */}
-                      <div className="mb-7">
-                        <p className="text-white/50 text-xs mb-1">{plan.priceNote}</p>
-                        <p className="text-4xl font-extrabold text-white tracking-tight">{plan.price}</p>
-                      </div>
+                      {/* Price removed as requested */}
 
                       {/* Features */}
                       <ul className="space-y-3 flex-grow">
@@ -161,11 +157,7 @@ export default function PricingSection() {
                     <h3 className="text-xl font-bold text-gray-900 dark:text-gray-50 mb-1">{plan.name}</h3>
                     <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6">{plan.description}</p>
 
-                    {/* Price */}
-                    <div className="mb-7">
-                      <p className="text-gray-400 dark:text-gray-500 text-xs mb-1">{plan.priceNote}</p>
-                      <p className="text-4xl font-extrabold text-[#145390] dark:text-blue-300 tracking-tight">{plan.price}</p>
-                    </div>
+                    {/* Price removed as requested */}
 
                     {/* Features */}
                     <ul className="space-y-3 flex-grow">
@@ -193,6 +185,8 @@ export default function PricingSection() {
           ))}
         </div>
 
+
+
         {/* EMI Banner */}
         <div className="mt-12 rounded-2xl overflow-hidden shadow-sm">
           <div className="bg-gradient-to-br from-[#145390] via-[#1a6abf] to-[#0e3d6e] p-8 relative overflow-hidden">
@@ -210,9 +204,18 @@ export default function PricingSection() {
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                   Flexible EMI Available
                 </h3>
-                <p className="text-blue-100 text-sm leading-relaxed max-w-md">
+                <p className="text-blue-100 text-sm leading-relaxed max-w-md mb-6">
                   Start your treatment today without financial stress. We offer 0% interest EMI plans so you can focus entirely on your dream of parenthood.
                 </p>
+                <a
+                  href="tel:+919151000135"
+                  className="inline-flex items-center gap-2 bg-[#ED2793] hover:bg-[#d41c7b] text-white font-semibold py-2.5 px-6 rounded-full transition-colors shadow-lg"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  +91 9151000135 - Call to know more
+                </a>
               </div>
 
               {/* Perks grid */}

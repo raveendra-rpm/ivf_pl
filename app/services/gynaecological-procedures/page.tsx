@@ -7,13 +7,13 @@ const treatments = [
     title: 'Advanced Laparoscopy',
     desc: 'Minimally invasive surgery to view the pelvis and treat conditions like endometriosis, ovarian cysts, and blocked fallopian tubes.',
     link: '/treatments/advanced-laparoscopy',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
+    image: '/surgical_procedures/microsurgical_testicular_sperm.jpg',
   },
   {
     title: 'Basic & Advanced Hysteroscopy',
     desc: 'Examining the inside of the uterus to diagnose and treat issues like polyps, fibroids, or a septate uterus that might interfere with implantation.',
     link: '/treatments/basic-advanced-hysteroscopy',
-    image: 'https://images.unsplash.com/photo-1551076805-e1869043e560?auto=format&fit=crop&w=800&q=80',
+    image: '/surgical_procedures/frozen_embryo_transfer_treatments.jpeg',
   },
 ];
 
@@ -65,7 +65,7 @@ export default function GynaecologicalProceduresPage() {
             <div className="flex flex-wrap gap-6">
               {[
                 { value: '86%+', label: 'Success Rate' },
-                { value: '10,000+', label: 'Happy Families' },
+                { value: '15,000+', label: 'Happy Families' },
                 { value: '5+', label: 'Years Experience' },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col">
