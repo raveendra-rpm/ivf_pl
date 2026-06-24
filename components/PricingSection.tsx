@@ -76,14 +76,14 @@ export default function PricingSection() {
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-[#145390] dark:text-blue-300 text-xs font-semibold px-4 py-2 rounded-full shadow-sm border border-[#145390]/10 dark:border-blue-800 mb-5">
             <Sparkles className="w-3.5 h-3.5 text-[#ED2793]" />
-            Affordable & Transparent Pricing
+            Our Fertility Treatments & Financing
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-50 leading-tight mb-4">
-            Know the Cost Before{' '}
-            <span className="text-[#145390] dark:text-blue-300">You Begin</span>
+            Choose the Right{' '}
+            <span className="text-[#145390] dark:text-blue-300">Treatment Plan</span>
           </h2>
           <p className="text-gray-500 dark:text-gray-400 text-base max-w-2xl mx-auto">
-            No hidden charges. No surprises. Varanasi's most trusted fertility clinic with fully transparent pricing — so you can plan your journey with confidence.
+            Varanasi's most trusted fertility clinic offering tailored treatments and flexible financing options to help make your dream of parenthood a reality.
           </p>
         </div>
 
@@ -233,7 +233,7 @@ export default function PricingSection() {
 
         {/* Disclaimer */}
         <p className="text-center text-gray-400 dark:text-gray-500 text-xs mt-5">
-          * Prices are indicative and may vary based on individual treatment requirements. Final cost will be discussed during your consultation.
+          * Treatment recommendations and customized plans will be discussed in detail during your personalized consultation.
         </p>
 
       </div>

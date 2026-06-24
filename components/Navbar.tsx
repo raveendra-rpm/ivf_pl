@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Phone, Menu, X, ChevronDown, ChevronRight, Sun, Moon } from 'lucide-react';
+import LanguageSelector from './LanguageSelector';
 
 type NavLink = {
   label: string;
@@ -326,6 +327,9 @@ export default function Navbar({ alwaysDark = false }: { alwaysDark?: boolean })
 
           {/* Right: Phone + Theme Toggle + Hamburger */}
           <div className="flex items-center gap-2 lg:gap-3 shrink-0">
+            {/* Language Selector */}
+            <LanguageSelector scrolled={activeHeader} isTransparentPage={true} />
+
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}

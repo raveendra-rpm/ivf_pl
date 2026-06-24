@@ -44,6 +44,7 @@ interface FacilityTourSectionProps {
 
 export default function FacilityTourSection({ showExploreButton = true }: FacilityTourSectionProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -84,19 +85,22 @@ export default function FacilityTourSection({ showExploreButton = true }: Facili
         </div>
 
         {/* Top Feature: Video Tour Placeholder */}
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-8 group cursor-pointer">
+        <div 
+          className="relative rounded-3xl overflow-hidden shadow-2xl mb-8 group cursor-pointer"
+          onClick={() => setIsVideoPlaying(true)}
+        >
           <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors z-10" />
           <img
             src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1200&auto=format&fit=crop"
             alt="Clinic Overview"
-            className="w-full h-[300px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-700"
           />
 
           <div className="absolute inset-0 z-20 flex items-center justify-center">
-            <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform duration-300">
-              <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-[#ED2793] shadow-xl">
-                <Play className="w-5 h-5 ml-1 fill-current" />
-              </div>
+            <div className="w-12 h-12 md:w-16 md:h-16 bg-[#ED2793] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(237,39,147,0.6)] transform group-hover:scale-110 transition-transform duration-500 relative z-10">
+              <svg className="w-5 h-5 md:w-6 md:h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
             </div>
           </div>
 
@@ -119,7 +123,7 @@ export default function FacilityTourSection({ showExploreButton = true }: Facili
               <img
                 src={item.image}
                 alt={item.title}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
               />
 
               {/* Hover Zoom Icon */}
@@ -183,6 +187,33 @@ export default function FacilityTourSection({ showExploreButton = true }: Facili
 
           <div className="absolute bottom-6 left-0 right-0 text-center text-white/70 text-sm pointer-events-none">
             {selectedIndex + 1} / {galleryItems.length}
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox Modal for Video */}
+      {isVideoPlaying && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 sm:p-6 md:p-12 animate-in fade-in duration-200"
+          onClick={() => setIsVideoPlaying(false)}
+        >
+          <button
+            onClick={() => setIsVideoPlaying(false)}
+            className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors z-50"
+          >
+            <X className="w-8 h-8" />
+          </button>
+
+          <div 
+            className="relative w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300 flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <video
+              src="/videos/pl_ivf_tour.mp4"
+              controls
+              autoPlay
+              className="w-full max-h-[85vh] object-contain bg-black"
+            />
           </div>
         </div>
       )}

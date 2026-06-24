@@ -110,7 +110,7 @@ export default function TestimonialsSection() {
                 /* Local video — use video element as thumbnail */
                 <video
                   src={item.localVideo}
-                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 ease-out"
                   muted
                   playsInline
                   preload="metadata"
@@ -119,22 +119,19 @@ export default function TestimonialsSection() {
                 <img 
                   src={item.image} 
                   alt="Patient Success Story" 
-                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 ease-out" 
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:via-black/10 transition-colors duration-500"></div>
               
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-red-600 rounded-2xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500 transform group-hover:scale-110"></div>
-                  <div className="w-[72px] h-[52px] transform group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl relative z-10">
-                    <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
-                      <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#FF0000"></path>
-                      <path d="M 45,24 27,14 27,34" fill="#fff"></path>
-                    </svg>
-                  </div>
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-[#ED2793] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(237,39,147,0.6)] transform group-hover:scale-110 transition-transform duration-500 relative z-10">
+                  <svg className="w-5 h-5 md:w-6 md:h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
                 </div>
               </div>
+
             </div>
           ))}
         </div>

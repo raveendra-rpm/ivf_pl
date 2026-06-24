@@ -31,7 +31,7 @@ export default function Footer() {
   const aboutLinks = [
     { name: 'About Us', href: '/our-story' },
     { name: 'Why Us?', href: '/why-popular-ivf' },
-    { name: 'Popular Group', href: '#' },
+    { name: 'Our Team', href: '/our-team' },
     { name: 'Career', href: '/careers' },
     { name: 'News & Updates', href: '/blog' },
     { name: 'Contact Us', href: '/contact' },
