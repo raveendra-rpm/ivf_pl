@@ -59,13 +59,15 @@ export default function HeroSection() {
             {slide.type === 'video' ? (
               <video
                 ref={videoRef}
-                src={slide.src}
                 autoPlay
                 muted
                 playsInline
+                preload="auto"
                 onEnded={nextSlide}
                 className="h-full w-full object-cover"
-              />
+              >
+                <source src={slide.src} type="video/mp4" />
+              </video>
             ) : (
               <img
                 src={slide.src}

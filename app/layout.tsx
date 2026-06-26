@@ -31,6 +31,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${plusJakartaSans.variable} h-full antialiased scroll-smooth`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col overflow-x-hidden" suppressHydrationWarning>
         {children}
