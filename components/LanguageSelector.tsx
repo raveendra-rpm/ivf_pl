@@ -248,7 +248,7 @@ const LanguageSelector = ({
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full border transition-all duration-300 group focus:outline-none ${
+        className={`flex items-center gap-1 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full border transition-all duration-300 group focus:outline-none ${
           isDark
             ? "border-gray-200 shadow-sm hover:border-primary-pink/30 hover:shadow-md"
             : "border-white/20 hover:border-white/40 shadow-none"
@@ -264,7 +264,7 @@ const LanguageSelector = ({
           <Globe className="w-3.5 h-3.5" />
         </div>
         <span
-          className={`text-[13px] font-bold tracking-tight uppercase ${textColor} notranslate`}
+          className={`hidden sm:inline text-[12px] sm:text-[13px] font-bold tracking-tight uppercase ${textColor} notranslate`}
         >
           {currentLanguageDetails.code}
         </span>

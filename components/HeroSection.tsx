@@ -103,7 +103,7 @@ export default function HeroSection() {
 
         {/* Banner Form (Image Slides Only) */}
         <div 
-          className={`absolute right-[5%] xl:right-[10%] top-1/2 -translate-y-1/2 z-30 w-full max-w-[360px] md:max-w-[400px] px-4 md:px-0 transition-all duration-700 ${
+          className={`hidden md:block absolute right-[5%] xl:right-[10%] top-1/2 -translate-y-1/2 z-30 w-full max-w-[360px] md:max-w-[400px] px-4 md:px-0 transition-all duration-700 ${
             currentSlide !== 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12 pointer-events-none'
           }`}
           onMouseEnter={() => setIsFormActive(true)}

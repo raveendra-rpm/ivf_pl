@@ -157,7 +157,7 @@ export default function WhyIVFSection() {
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className="group relative bg-white/70 dark:bg-gray-800/80 backdrop-blur-xl rounded-[2rem] p-6 md:p-8 border border-white dark:border-gray-700 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:shadow-[0_20px_40px_rgb(20,83,144,0.08)] dark:hover:border-gray-600 transition-all duration-500 overflow-hidden flex flex-col justify-center"
+                className="group relative bg-white/70 dark:bg-gray-800/80 backdrop-blur-xl rounded-[2rem] p-4 sm:p-6 md:p-8 border border-white dark:border-gray-700 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:shadow-[0_20px_40px_rgb(20,83,144,0.08)] dark:hover:border-gray-600 transition-all duration-500 overflow-hidden flex flex-col justify-center"
               >
                 {/* Subtle gradient hover reveal */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#145390]/[0.03] to-[#ED2793]/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -166,11 +166,11 @@ export default function WhyIVFSection() {
                 <div className={`absolute top-0 left-0 w-full h-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${i % 2 === 0 ? 'bg-gradient-to-r from-[#145390] to-[#1a6ab8]' : 'bg-gradient-to-r from-[#ED2793] to-[#ff47a9]'}`} />
 
                 <div className="relative z-10 flex flex-col gap-1">
-                  <div className={`text-4xl md:text-[42px] font-extrabold tracking-tight mb-1 group-hover:scale-[1.03] transition-transform duration-500 origin-left ${i % 2 === 0 ? 'text-[#145390] dark:text-[#93c5fd]' : 'text-[#ED2793] dark:text-[#f472b6]'}`}>
+                  <div className={`text-2xl sm:text-4xl md:text-[42px] font-extrabold tracking-tight mb-1 group-hover:scale-[1.03] transition-transform duration-500 origin-left ${i % 2 === 0 ? 'text-[#145390] dark:text-[#93c5fd]' : 'text-[#ED2793] dark:text-[#f472b6]'}`}>
                     <AnimatedCounter endValue={stat.value} duration={2000} suffix={stat.suffix} />
                   </div>
-                  <div className="text-sm md:text-base font-semibold text-gray-600 dark:text-gray-300 flex items-center gap-2">
-                    <span className={`w-1.5 h-1.5 rounded-full ${i % 2 === 0 ? 'bg-[#ED2793] dark:bg-pink-400 shadow-[0_0_8px_rgba(237,39,147,0.5)]' : 'bg-[#145390] dark:bg-blue-400 shadow-[0_0_8px_rgba(20,83,144,0.5)]'}`} />
+                  <div className="text-xs sm:text-sm md:text-base font-semibold text-gray-600 dark:text-gray-300 flex items-center gap-1.5 sm:gap-2">
+                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${i % 2 === 0 ? 'bg-[#ED2793] dark:bg-pink-400 shadow-[0_0_8px_rgba(237,39,147,0.5)]' : 'bg-[#145390] dark:bg-blue-400 shadow-[0_0_8px_rgba(20,83,144,0.5)]'}`} />
                     {stat.label}
                   </div>
                 </div>

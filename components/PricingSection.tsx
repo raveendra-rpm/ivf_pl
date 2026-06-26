@@ -219,11 +219,11 @@ export default function PricingSection() {
               </div>
 
               {/* Perks grid */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 w-full">
                 {emiPerks.map((perk, i) => (
-                  <div key={i} className="flex items-center gap-2.5 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[160px]">
-                    <span className="text-[#ED2793]">{perk.icon}</span>
-                    <span className="text-white text-sm font-medium">{perk.label}</span>
+                  <div key={i} className="flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-1.5 sm:gap-2.5 bg-white/10 backdrop-blur-sm rounded-xl px-2 sm:px-4 py-2.5 sm:py-3">
+                    <span className="text-[#ED2793] shrink-0">{perk.icon}</span>
+                    <span className="text-white text-[11px] sm:text-sm font-medium leading-tight">{perk.label}</span>
                   </div>
                 ))}
               </div>

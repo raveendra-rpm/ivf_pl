@@ -212,14 +212,14 @@ export default function Navbar({ alwaysDark = false }: { alwaysDark?: boolean })
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${headerBg}`}>
-        <div className="w-full max-w-[1600px] mx-auto flex h-[72px] xl:h-[84px] items-center justify-between px-4 lg:px-8 xl:px-6 2xl:px-10 gap-2">
+        <div className="w-full max-w-[1600px] mx-auto flex h-[72px] xl:h-[84px] items-center justify-between px-2 sm:px-4 lg:px-8 xl:px-6 2xl:px-10 gap-0.5 sm:gap-2">
 
           {/* Logo */}
           <Link href="/" className="flex items-center group shrink-0">
             <img
               src="/popular_ivf_logo.png"
               alt="Popular IVF Logo"
-              className="h-12 w-auto max-w-[190px] bg-white p-2 rounded-xl object-contain md:h-14 md:max-w-[230px] xl:h-16 xl:max-w-[270px] 2xl:h-[68px] 2xl:max-w-[300px]"
+              className="h-11 sm:h-12 w-auto max-w-[155px] sm:max-w-[190px] bg-white p-1.5 sm:p-2 rounded-xl object-contain md:h-14 md:max-w-[230px] xl:h-16 xl:max-w-[270px] 2xl:h-[68px] 2xl:max-w-[300px]"
             />
           </Link>
 
@@ -326,14 +326,14 @@ export default function Navbar({ alwaysDark = false }: { alwaysDark?: boolean })
           </nav>
 
           {/* Right: Phone + Theme Toggle + Hamburger */}
-          <div className="flex items-center gap-2 lg:gap-3 shrink-0">
+          <div className="flex items-center gap-1 sm:gap-2 lg:gap-3 shrink-0">
             {/* Language Selector */}
             <LanguageSelector scrolled={activeHeader} isTransparentPage={true} />
 
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className={`flex p-2 rounded-full transition-all duration-200 shadow-sm border border-transparent ${activeHeader
+              className={`flex p-1.5 sm:p-2 rounded-full transition-all duration-200 shadow-sm border border-transparent ${activeHeader
                 ? 'bg-gray-50 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200'
                 : 'bg-white/10 hover:bg-white/20 text-white'
                 }`}
@@ -368,10 +368,10 @@ export default function Navbar({ alwaysDark = false }: { alwaysDark?: boolean })
             {/* Hamburger */}
             <button
               onClick={() => setMobileOpen(true)}
-              className={`xl:hidden p-2 rounded-lg transition-colors ${activeHeader ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'}`}
+              className={`xl:hidden p-1 sm:p-2 rounded-lg transition-colors ${activeHeader ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'}`}
               aria-label="Open menu"
             >
-              <Menu className="h-6 w-6" />
+              <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
           </div>
         </div>
