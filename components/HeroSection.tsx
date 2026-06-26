@@ -25,7 +25,7 @@ export default function HeroSection() {
   // Handle slide timing
   useEffect(() => {
     const activeSlide = slides[currentSlide];
-    
+
     // If current slide is video, do not auto-play via timer
     if (activeSlide.type === 'video') {
       return;
@@ -53,9 +53,8 @@ export default function HeroSection() {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 z-0 h-full w-full transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
-            }`}
+            className={`absolute inset-0 z-0 h-full w-full transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
+              }`}
           >
             {slide.type === 'video' ? (
               <video
@@ -78,13 +77,11 @@ export default function HeroSection() {
         ))}
 
         <div className="absolute inset-0 z-10 bg-black/30 pointer-events-none" />
-        <div className={`absolute inset-x-0 bottom-0 z-10 h-[50%] bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none transition-opacity duration-500 ${
-          currentSlide === 0 ? 'opacity-100' : 'opacity-0'
-        }`} />
+        <div className={`absolute inset-x-0 bottom-0 z-10 h-[50%] bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none transition-opacity duration-500 ${currentSlide === 0 ? 'opacity-100' : 'opacity-0'
+          }`} />
 
-        <div className={`absolute inset-x-0 bottom-0 z-20 px-4 pb-8 pt-32 sm:pb-10 md:px-8 md:pb-12 lg:pb-14 pointer-events-none transition-opacity duration-500 ${
-          currentSlide === 0 ? 'opacity-100' : 'opacity-0'
-        }`}>
+        <div className={`absolute inset-x-0 bottom-0 z-20 px-4 pb-8 pt-32 sm:pb-10 md:px-8 md:pb-12 lg:pb-14 pointer-events-none transition-opacity duration-500 ${currentSlide === 0 ? 'opacity-100' : 'opacity-0'
+          }`}>
           <div className="mx-auto flex max-w-[1080px] flex-col items-center text-center">
             <h1 className="mx-auto max-w-[1040px] text-[2rem] font-extrabold leading-[1.04] tracking-normal text-white drop-shadow-2xl sm:text-[2.5rem] md:text-[3rem] lg:text-[3.25rem] xl:text-[3.65rem]">
               Your Journey to{' '}
@@ -102,10 +99,9 @@ export default function HeroSection() {
         </div>
 
         {/* Banner Form (Image Slides Only) */}
-        <div 
-          className={`hidden md:block absolute right-[5%] xl:right-[10%] top-1/2 -translate-y-1/2 z-30 w-full max-w-[360px] md:max-w-[400px] px-4 md:px-0 transition-all duration-700 ${
-            currentSlide !== 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12 pointer-events-none'
-          }`}
+        <div
+          className={`hidden md:block absolute right-[5%] xl:right-[10%] top-1/2 -translate-y-1/2 z-30 w-full max-w-[360px] md:max-w-[400px] px-4 md:px-0 transition-all duration-700 ${currentSlide !== 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12 pointer-events-none'
+            }`}
           onMouseEnter={() => setIsFormActive(true)}
           onMouseLeave={() => setIsFormActive(false)}
           onFocus={() => setIsFormActive(true)}
@@ -115,16 +111,16 @@ export default function HeroSection() {
             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-5">
               Book Free IVF Consultation
             </h3>
-            
+
             <form className="flex flex-col gap-3.5">
               {/* Name Input */}
               <div className="flex items-center border border-gray-300 rounded-xl p-2 bg-white focus-within:border-primary-pink focus-within:ring-1 focus-within:ring-primary-pink transition-all">
                 <div className="bg-gray-50 rounded-full w-9 h-9 flex items-center justify-center shrink-0">
                   <User className="h-4 w-4 text-[#823b82]" strokeWidth={2.5} />
                 </div>
-                <input 
-                  type="text" 
-                  placeholder="Full Name*" 
+                <input
+                  type="text"
+                  placeholder="Full Name*"
                   className="bg-transparent focus:outline-none ml-3 w-full text-gray-700 font-medium placeholder:font-normal placeholder:text-gray-400 text-sm md:text-base"
                   required
                 />
@@ -137,9 +133,9 @@ export default function HeroSection() {
                   <ChevronDown className="w-4 h-4 text-gray-500" />
                   <span className="text-gray-600 font-medium text-sm md:text-base ml-1">+91</span>
                 </div>
-                <input 
-                  type="tel" 
-                  placeholder="Mobile Number*" 
+                <input
+                  type="tel"
+                  placeholder="Mobile Number*"
                   className="bg-transparent focus:outline-none ml-3 w-full text-gray-700 font-medium placeholder:font-normal placeholder:text-gray-400 text-sm md:text-base tracking-wide"
                   required
                 />
@@ -150,9 +146,9 @@ export default function HeroSection() {
                 <div className="bg-gray-50 rounded-full w-9 h-9 flex items-center justify-center shrink-0">
                   <Mail className="h-4 w-4 text-[#823b82]" strokeWidth={2.5} />
                 </div>
-                <input 
-                  type="email" 
-                  placeholder="Email" 
+                <input
+                  type="email"
+                  placeholder="Email"
                   className="bg-transparent focus:outline-none ml-3 w-full text-gray-700 font-medium placeholder:font-normal placeholder:text-gray-400 text-sm md:text-base"
                 />
               </div>
@@ -162,8 +158,8 @@ export default function HeroSection() {
                 <div className="bg-gray-50 rounded-full w-9 h-9 flex items-center justify-center shrink-0 mt-0.5">
                   <MessageSquare className="h-4 w-4 text-[#823b82]" strokeWidth={2.5} />
                 </div>
-                <textarea 
-                  placeholder="Message" 
+                <textarea
+                  placeholder="Message"
                   rows={2}
                   className="h-12 bg-transparent focus:outline-none ml-3 w-full text-gray-700 font-medium placeholder:font-normal placeholder:text-gray-400 text-sm md:h-auto md:text-base resize-none"
                 ></textarea>
@@ -196,8 +192,8 @@ export default function HeroSection() {
               </div>
 
               {/* Submit Button */}
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="w-full bg-primary-blue hover:bg-primary-blue/90 text-white font-bold text-lg rounded-xl py-3.5 transition-colors shadow-md shadow-primary-blue/20 mt-1"
               >
                 Submit
@@ -230,9 +226,8 @@ export default function HeroSection() {
               key={index}
               onClick={() => setCurrentSlide(index)}
               aria-label={`Go to slide ${index + 1}`}
-              className={`h-2 w-2 rounded-full transition-all duration-300 md:h-2.5 md:w-2.5 ${
-                index === currentSlide ? 'bg-primary-pink w-6 md:w-8' : 'bg-white/50 hover:bg-white/80'
-              }`}
+              className={`h-2 w-2 rounded-full transition-all duration-300 md:h-2.5 md:w-2.5 ${index === currentSlide ? 'bg-primary-pink w-6 md:w-8' : 'bg-white/50 hover:bg-white/80'
+                }`}
             />
           ))}
         </div>
